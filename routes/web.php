@@ -16,3 +16,13 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::group(['namespace' => 'App\Http\Controllers', 'prefix' => 'test', 'middlewareGroup' => ['web']], function () {
+    \App\Helpers\Helper::makeRoute('auth', 'AuthController');
+    // Route::get('auth', [AuthController::class, 'index']);
+    // Route::get('auth/create', [AuthController::class, 'create']);
+    // Route::post('auth/create', [AuthController::class, 'store']);
+    // Route::get('auth/edit/{id}', [AuthController::class, 'edit']);
+    // Route::post('auth/edit/{id}', [AuthController::class, 'update']);
+    // Route::delete('auth/delete/{id}', [AuthController::class, 'destroy']);
+});

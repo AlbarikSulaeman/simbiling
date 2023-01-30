@@ -6,12 +6,13 @@ class Helper {
 
     public static function makeRoute($controller, $controller_class){
 
-    //        Route::get('/'.$controller.'/list/{filter?}', $controller_class.'@getList');
-            Route::get('/'.$controller, $controller_class.'@index');
-            // Route::post('/'.$controller, $controller_class.'@postIndex');
-            Route::get('/'.$controller.'/add', $controller_class.'@getAdd');
-            Route::post('/'.$controller.'/commit', $controller_class.'@postAdd');
-        }
+        Route::get($controller, $controller_class .'@index');
+        Route::get($controller.'/create', $controller_class .'@create');
+        Route::post($controller.'/create', $controller_class .'@store');
+        Route::get($controller.'/edit/{id}', $controller_class .'@edit');
+        Route::post($controller.'/edit/{id}', $controller_class .'@update');
+        Route::delete($controller.'/delete/{id}', $controller_class .'@destroy');
+    }
 
 
     public static function randomstring($length = 5, $type = 'numeric'){
