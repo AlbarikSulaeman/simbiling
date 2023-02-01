@@ -21,6 +21,18 @@ Route::get('test/auth/login', [App\Http\Controllers\AuthController::class, 'logi
 
 Route::get('test/auth/logout', [App\Http\Controllers\AuthController::class, 'logout']);
 
+Route::get('/login', 'App\Http\Controllers\AuthController' .'@login');
+
+Route::group(['namespace' => 'App\Http\Controllers', 'prefix' => 'simbiling', 'middlewareGroup' => ['web']], function () {
+   
+    // Route::get('auth', [AuthController::class, 'index']);
+    // Route::get('auth/create', [AuthController::class, 'create']);
+    // Route::post('auth/create', [AuthController::class, 'store']);
+    // Route::get('auth/edit/{id}', [AuthController::class, 'edit']);
+    // Route::post('auth/edit/{id}', [AuthController::class, 'update']);
+    // Route::delete('auth/delete/{id}', [AuthController::class, 'destroy']);
+});
+
 Route::group(['namespace' => 'App\Http\Controllers', 'prefix' => 'test', 'middlewareGroup' => ['web']], function () {
     \App\Helpers\Helper::makeRoute('auth', 'AuthController');
     \App\Helpers\Helper::makeRoute('student', 'StudentController');
