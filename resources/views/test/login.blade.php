@@ -19,17 +19,13 @@
                 </div>
 @endif
                 <div class="container">
-                    <h5 class="sidebar-heading" ><a href="/test/auth/logout"style="color: black; text-decoration: none;"><-logout</a></h5>
+                    <h5 class="sidebar-heading" ><a href="/register"style="color: black; text-decoration: none;"><-kembali</a></h5>
                     <main class="form-register">
-                        <form action="auth/create" method="POST">
+                        <form action="/test/auth/authanticate" method="POST">
                            @csrf
                            
-                            <h1 class="h3 mb-3 fw-normal">Tambahkan User</h1>
+                            <h1 class="h3 mb-3 fw-normal">Login</h1>
 
-                            <div class="form-floating">
-                                <input type="text" name="name" class="form-control mt-2" id="name" placeholder="Name">
-                                <label for="name">Name</label>
-                            </div>
                             <div class="form-floating">
                                 <input type="text" name="email" class="form-control mt-2" id="email" placeholder="email">
                                 <label for="email">Email</label>
@@ -38,7 +34,7 @@
                                 <input type="password" name="password" class="form-control mt-2" id="password" placeholder="Password">
                                 <label for="password">Password</label>
                             </div>
-                            <button class="w-100 btn btn-lg btn-primary mt-4" type="submit">Tambah</button>
+                            <button class="w-100 btn btn-lg btn-primary mt-4" type="submit">Login</button>
                             
                         </form>
                     </main>
