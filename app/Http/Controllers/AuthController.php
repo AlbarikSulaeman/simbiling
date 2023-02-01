@@ -99,7 +99,7 @@ class AuthController extends Controller
 
     public function login()
     {
-        return view('auth.login');
+        return view('test.login');
     }
 
     /**
@@ -120,8 +120,8 @@ class AuthController extends Controller
             $id = Auth::user()->_id;
            
 
-            return redirect()->intended('/register');
-            //return redirect("/test/auth")->with('success', 'login berhasil!');
+            //return redirect()->intended('/register');
+            return redirect("/test/auth")->with('success', 'login berhasil!');
         }
         return back()->with('success', 'Login gagal! Silahkan coba lagi');
     }
@@ -134,6 +134,6 @@ class AuthController extends Controller
 
         $request->session()->regenerateToken();
 
-        return redirect('/login');
+        return redirect('/test/register');
     }
 }
