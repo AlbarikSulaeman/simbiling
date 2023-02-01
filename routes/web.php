@@ -16,6 +16,10 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+Route::post('test/auth/authanticate', [App\Http\Controllers\AuthController::class, 'authanticate']);
+Route::get('test/auth/login', [App\Http\Controllers\AuthController::class, 'login']);
+
+Route::get('test/auth/logout', [App\Http\Controllers\AuthController::class, 'logout']);
 
 Route::group(['namespace' => 'App\Http\Controllers', 'prefix' => 'test', 'middlewareGroup' => ['web']], function () {
     \App\Helpers\Helper::makeRoute('auth', 'AuthController');
