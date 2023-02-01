@@ -1,5 +1,7 @@
 APP_NAME=Laravel
 APP_ENV=local
+APP_LOGO=public\assets\img\logo_wikrama.png
+APP_NAME=simbiling
 APP_KEY=base64:r25+Yns1RXsW3stsueLwMmsRGeVee4r5kH4javejdRQ=
 APP_DEBUG=true
 APP_URL=http://localhost
