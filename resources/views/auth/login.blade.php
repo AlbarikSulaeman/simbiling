@@ -5,17 +5,18 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{env('APP_NAME')}}</title>
-  <link href="asset/css/login.css" rel="stylesheet">
+  <link href="assets/css/login.css" rel="stylesheet">
 </head>
+<header>
+    <img src="{{asset(env('APP_LOGO'))}}" class="wikrama">
+</header>  
 <body>
-    <header>
-        <img src="{{asset(env('APP_LOGO'))}}" alt="">
-    </header>  
    <form action="">
+    @csrf
     <div class="container-fluid">
         <div class="row">
                     <div class="col-md">
-                    <img src="assets/img/login.png" alt="">
+                    <img src="assets/img/login.png">
                 </div>
         <div class="card">
             <div class="col-md">
