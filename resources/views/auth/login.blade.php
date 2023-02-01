@@ -15,20 +15,23 @@
     @csrf
     <div class="container-fluid">
         <div class="row">
-                    <div class="col-md">
-                    <img src="assets/img/login.png">
-                </div>
-        <div class="card">
             <div class="col-md">
-                    <label for="">Username</label>
-                    <input type="text" placeholder="Masukkan Username Anda...">
-                    <br>
-                    <label for="">Password</label>
-                    <input type="text" placeholder="Masukkan Password Anda...">
+                <img src="assets/img/login.png" class="logo">
+            <div class="card">
+            <div class="col-md">
+                <h1>Login</h1>
+                <label for="">Username</label>
+                <input type="text" placeholder="Masukkan Username Anda...">
+                <br>
+                <label for="">Password</label>
+                <input type="text" placeholder="Masukkan Password Anda...">
+                <p>forgot password</p>
+                <button>Login</button>
             </div>
-</div>
+            </div>
+            </div>
         </div>
+    </div>
    </form>
-</div>
 </body>
 </html>
