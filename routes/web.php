@@ -19,6 +19,7 @@ Route::get('/', function () {
 
 Route::group(['namespace' => 'App\Http\Controllers', 'prefix' => 'test', 'middlewareGroup' => ['web']], function () {
     \App\Helpers\Helper::makeRoute('auth', 'AuthController');
+    \App\Helpers\Helper::makeRoute('student', 'StudentController');
     // Route::get('auth', [AuthController::class, 'index']);
     // Route::get('auth/create', [AuthController::class, 'create']);
     // Route::post('auth/create', [AuthController::class, 'store']);
