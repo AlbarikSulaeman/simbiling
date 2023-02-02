@@ -1,0 +1,27 @@
+body {
+    background-color: #f5f5f5;
+}
+header img {
+    margin-left: 100px;
+    margin-top: 8px;
+    width: 50px;
+
+}
+header {
+    background-color: white;
+    height: 75px;
+    box-shadow: 0px 1px rgb(202, 200, 200);
+}
+.logo {
+    margin-top: 50px;
+    margin-left: 50px;
+    width: 600px;
+    height: 550px;
+}
+.card {
+    width: 500px;
+    height: 400px;
+    background-color: white;
+    margin-left: 900px;
+    margin-top: -500px;
+}
