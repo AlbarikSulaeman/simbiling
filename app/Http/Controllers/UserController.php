@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
+use Maatwebsite\Excel\Facades\Excel;
+use App\Imports\ImportUser;
+use App\Exports\ExportUser;
 use Illuminate\Http\Request;
 
 class UserController extends Controller
@@ -12,10 +15,9 @@ class UserController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function getIndex()
+    public function index()
     {
-        $users = User::get()->toArray();
-        return $users;
+        return view('test.user');
     }
 
     /**
@@ -25,12 +27,7 @@ class UserController extends Controller
      */
     public function create()
     {
-        $user           = new User();
-        $user->name     = $request->input('name');
-        $user->email    = $request->input('email');
-        $user->save();
-
-        return $user;
+        //
     }
 
     /**
@@ -41,7 +38,24 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        //
+
+        $validateData = $request->validate([
+            'name' => 'required',
+            'email' => ['required', 'unique:users'],
+            'password' => 'required',
+            'role',
+            'verification_code' => 'number',
+            'verification' => 'boolean',
+        ]);
+
+        $validateData['password'] = bcrypt($validateData['password']);
+        $validateData['verification_code'] = Helper::randomstring(4,'numeric');
+        $validateData['role'] = 'user';
+        $validateData['verification'] = false;
+
+        User::create($validateData);
+
+        return redirect('test/auth')->with('success', 'Registrasi berhasil!');
     }
 
     /**
@@ -95,5 +109,19 @@ class UserController extends Controller
         $user->delete();
 
         return $user;
+    }
+    public function importView(Request $request){
+        return view('importFile');
+    }
+ 
+    public function import(Request $request){
+        // dd($request->file('file'));
+        Excel::import(new ImportUser,
+                      $request->file('file')->store('files'));
+        return redirect()->back();
+    }
+ 
+    public function exportUsers(Request $request){
+        return Excel::download(new ExportUser, 'users.xlsx');
     }
 }
