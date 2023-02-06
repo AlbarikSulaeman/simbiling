@@ -14,7 +14,8 @@ class StudentController extends Controller
      */
     public function index()
     {
-        return view('test.student');
+        $student=Students::get();
+        return view('test.data', compact('student'));
     }
 
     /**
@@ -48,7 +49,7 @@ class StudentController extends Controller
 
         Students::create($validateData);
 
-        return redirect('test/student')->with('success', 'Registrasi berhasil!');
+        return redirect('test.editstudent')->with('success', 'Registrasi berhasil!');
     }
 
     /**
@@ -70,12 +71,8 @@ class StudentController extends Controller
      */
     public function edit($id)
     {
-        $student           = Students::find($id);
-        $student->name     = $request->input('name');
-        $student->nis    = $request->input('nis');
-        $student->save();
-
-        return $student;
+        $student=Students::find($id);
+        return view('test.editstudent', compact('student'));
     }
 
     /**
@@ -87,7 +84,19 @@ class StudentController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $validateData = $request->validate([
+            'name' => 'required',
+            'nis' => 'required',
+            // 'rombel' => 'required',
+        ]);
+
+        //$validateData['rombel'] = "RPL XII-5";
+        $student=Students::find($id);
+
+        $student->update($validateData);
+
+        //return $student;
+        return redirect('test/student')->with('success', 'Edit Berhasil');
     }
 
     /**
@@ -99,5 +108,11 @@ class StudentController extends Controller
     public function destroy($id)
     {
         //
+    }
+    public function data()
+    {
+        $student = Students::get();
+
+        return view('test/data');
     }
 }

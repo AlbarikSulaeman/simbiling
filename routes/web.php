@@ -32,6 +32,8 @@ Route::group(['namespace' => 'App\Http\Controllers', 'prefix' => 'simbiling', 'm
     // Route::post('auth/edit/{id}', [AuthController::class, 'update']);
     // Route::delete('auth/delete/{id}', [AuthController::class, 'destroy']);
 });
+Route::get('/data', 'App\Http\Controllers\StudentController@data');
+
 
 Route::group(['namespace' => 'App\Http\Controllers', 'prefix' => 'test', 'middlewareGroup' => ['web']], function () {
     \App\Helpers\Helper::makeRoute('auth', 'AuthController');
