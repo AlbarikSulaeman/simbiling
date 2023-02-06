@@ -99,7 +99,7 @@ class AuthController extends Controller
 
     public function login()
     {
-        return view('test.login');
+        return view('auth.login');
     }
 
     /**
