@@ -50,7 +50,7 @@
         <ul>
           <li><a href="#hero">Home</a></li>
           <li><a href="#contact">Contact</a></li>
-          <li class="login"><a href="#">Login</a></li>
+          <button class="login"><a href="#login">Login</a></button>
         </ul>
       </nav><!-- .navbar -->
       <i class="mobile-nav-toggle mobile-nav-show bi bi-list"></i>
@@ -62,11 +62,10 @@
   <!-- ======= Hero Section ======= -->
   <section id="hero" class="hero">
     <div class="container position-relative">
-      <div class="row gy-5" data-aos="fade-in">
+      <div class="row gy-5 mt-4 ms-3" data-aos="fade-in">
         <div class="col-lg-6 order-2 order-lg-1 d-flex flex-column justify-content-center text-center text-lg-start">
           <h2>Welcome to Simbiling</h2>
-          <p>Simbiling adalah aplikasi berbasis website yang dibuat untuk pihak kesiswaan. Aplikasi ini bisa digunakan sebagai sarana untuk memudahkan memantau, mengelola siswa.
-            Fungsi utamanya yaitu untuk memudahkan pihakk kesiswaan mendata dan mengelola siswa mengenai Bimbingan Karir dan Konseling.</p>
+          <p>Simbiling adalah aplikasi berbasis website yang dibuat untuk pihak kesiswaan. Aplikasi ini bisa digunakan sebagai sarana untuk memudahkan memantau, dan mengelola data siswa. Fungsi utamanya yaitu untuk memudahkan pihak kesiswaan mendata dan mengelola siswa mengenai Bimbingan Karir dan Konseling.</p>
           <!-- <div class="d-flex justify-content-center justify-content-lg-start">
             <a href="#about" class="btn-get-started">Get Started</a>
           </div> -->
