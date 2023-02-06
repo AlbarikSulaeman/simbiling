@@ -19,9 +19,9 @@
                 </div>
 @endif
                 <div class="container">
-                    <h5 class="sidebar-heading" ><a href="/register"style="color: black; text-decoration: none;"><-kembali</a></h5>
+                    <h5 class="sidebar-heading" ><a href="/test/student"style="color: black; text-decoration: none;"><-kembali</a></h5>
                     <main class="form-register">
-                        <form action="student/create" method="POST">
+                        <form action="add" method="POST">
                            @csrf
                            
                             <h1 class="h3 mb-3 fw-normal">Tambahkan User</h1>

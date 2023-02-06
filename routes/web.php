@@ -32,8 +32,6 @@ Route::get('/export-users',[App\Http\Controllers\UserController::class,
 Route::group(['namespace' => 'App\Http\Controllers', 'prefix' => 'simbiling', 'middlewareGroup' => ['web']], function () {
 
 });
-Route::get('/data', 'App\Http\Controllers\StudentController@data');
-
 
 Route::group(['namespace' => 'App\Http\Controllers', 'prefix' => 'simbiling', 'middlewareGroup' => ['web']], function () {
        Route::get('dashboard', [App\Http\Controllers\DashboardController::class, 'getDashboard']);

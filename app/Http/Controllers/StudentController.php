@@ -15,7 +15,7 @@ class StudentController extends Controller
     public function index()
     {
         $student=Students::get();
-        return view('test.data', compact('student'));
+        return view('test.student.show', compact('student'));
     }
 
     /**
@@ -25,7 +25,7 @@ class StudentController extends Controller
      */
     public function create()
     {
-        //
+        return view('test.student.add');
     }
 
     /**
@@ -49,7 +49,7 @@ class StudentController extends Controller
 
         Students::create($validateData);
 
-        return redirect('test.editstudent')->with('success', 'Registrasi berhasil!');
+        return redirect('test/student')->with('success', 'Registrasi berhasil!');
     }
 
     /**
@@ -72,7 +72,7 @@ class StudentController extends Controller
     public function edit($id)
     {
         $student=Students::find($id);
-        return view('test.editstudent', compact('student'));
+        return view('test.student.edit', compact('student'));
     }
 
     /**
@@ -107,12 +107,9 @@ class StudentController extends Controller
      */
     public function destroy($id)
     {
-        //
-    }
-    public function data()
-    {
-        $student = Students::get();
-
-        return view('test/data');
+        Students::destroy($id);
+        
+        return redirect('test/student')
+        ->with('success','Berhasil Hapus !');
     }
 }
