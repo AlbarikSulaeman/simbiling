@@ -29,10 +29,13 @@ Route::post('/import',[App\Http\Controllers\UserController::class,
         'import'])->name('import');
 Route::get('/export-users',[App\Http\Controllers\UserController::class,
         'exportUsers'])->name('export');
-
 Route::group(['namespace' => 'App\Http\Controllers', 'prefix' => 'simbiling', 'middlewareGroup' => ['web']], function () {
 
 });
+
+Route::group(['namespace' => 'App\Http\Controllers', 'prefix' => 'simbiling', 'middlewareGroup' => ['web']], function () {
+       Route::get('dashboard', [App\Http\Controllers\DashboardController::class, 'getDashboard']);
+    });
 
 Route::group(['namespace' => 'App\Http\Controllers', 'prefix' => 'test', 'middlewareGroup' => ['web']], function () {
     \App\Helpers\Helper::makeRoute('auth', 'AuthController');

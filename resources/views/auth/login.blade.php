@@ -19,12 +19,13 @@
                 <img src="assets/img/login.png" class="logo">
             <div class="card">
             <div class="col-md">
-                <h1>Login</h1>
-                <label for="">Username</label>
-                <input type="text" placeholder="Masukkan Username Anda...">
                 <br>
-                <label for="">Password</label>
-                <input type="text" placeholder="Masukkan Password Anda...">
+                <h1>Login</h1>
+                <h4>Username</h4>
+                <input type="text" class="input">
+                <br>
+                <h4>Password</h4>
+                <input type="text" class="input">
                 <p>forgot password</p>
                 <button>Login</button>
             </div>
