@@ -62,16 +62,16 @@
   <!-- ======= Hero Section ======= -->
   <section id="hero" class="hero">
     <div class="container position-relative">
-      <div class="row gy-5 mt-4 ms-3" data-aos="fade-in">
+      <div class="row gy-5 ms-3" data-aos="fade-in">
         <div class="col-lg-6 order-2 order-lg-1 d-flex flex-column justify-content-center text-center text-lg-start">
-          <h2>Welcome to Simbiling</h2>
-          <p>Simbiling adalah aplikasi berbasis website yang dibuat untuk pihak kesiswaan. Aplikasi ini bisa digunakan sebagai sarana untuk memudahkan memantau, dan mengelola data siswa. Fungsi utamanya yaitu untuk memudahkan pihak kesiswaan mendata dan mengelola siswa mengenai Bimbingan Karir dan Konseling.</p>
+          <h2>Contact Us</h2>
+          <p>Fill up the form and our Team will get back to you within 24 hour.</p>
           <!-- <div class="d-flex justify-content-center justify-content-lg-start">
             <a href="#about" class="btn-get-started">Get Started</a>
           </div> -->
         </div>
         <div class="col-lg-6 order-1 order-lg-2">
-          <img src="assets/img/landing_fying.png" class="img-fluid" alt="" data-aos="zoom-out" data-aos-delay="100">
+          <!-- <img src="assets/img/landing_fying.png" class="img-fluid" alt="" data-aos="zoom-out" data-aos-delay="100"> -->
         </div>
       </div>
     </div>

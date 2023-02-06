@@ -48,3 +48,7 @@ Route::group(['namespace' => 'App\Http\Controllers', 'prefix' => 'test', 'middle
     // Route::post('auth/edit/{id}', [AuthController::class, 'update']);
     // Route::delete('auth/delete/{id}', [AuthController::class, 'destroy']);
 });
+
+Route::get('/contact', function () {
+    return view('reference.contact');
+});
