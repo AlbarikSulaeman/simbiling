@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{env('APP_NAME')}}</title>
   <link href="assets/css/login.css" rel="stylesheet">
+
 </head>
 <header>
     <img src="{{asset(env('APP_LOGO'))}}" class="wikrama">
@@ -15,10 +16,11 @@
     @csrf
     <div class="container-fluid">
         <div class="row">
-            <div class="col-md">
+            <div class="col-md-5">
                 <img src="assets/img/login.png" class="logo">
+            
+            <div class="col-md-7 d-flex justify-content-start">
             <div class="card">
-            <div class="col-md">
                 <br>
                 <h1>Login</h1>
                 <h4>Username</h4>

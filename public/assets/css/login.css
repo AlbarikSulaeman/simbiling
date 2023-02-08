@@ -6,19 +6,19 @@ body {
 }
 header img {
     margin-left: 100px;
-    margin-top: 25px;
+    margin-top: 8px;
     width: 50px;
 
 }
 header {
     background-color: white;
-    height: 100px;
+    height: 65px;
     box-shadow: 0px 3px rgb(202 200 200 / 79%);
     margin: -10px;
 }
 .logo {
     margin-top: 50px;
-    margin-left: 50px;
+    margin-left: 70px;
     width: 600px;
     height: 550px;
 }
@@ -26,7 +26,7 @@ header {
     width: 400px;
     height: 500px;
     background-color: white;
-    margin-left: 900px;
+    margin-left: 800px;
     margin-top: -530px;
 }
 h1 {
