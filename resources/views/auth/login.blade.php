@@ -9,10 +9,10 @@
 
 </head>
 <header>
-    <img src="{{asset(env('APP_LOGO'))}}" class="wikrama">
+    <img src="assets/img/logo_wikrama.png" class="wikrama">
 </header>  
 <body>
-   <form action="">
+   <form action="/login" method="POST">
     @csrf
     <div class="container-fluid">
         <div class="row">
@@ -24,10 +24,20 @@
                 <br>
                 <h1>Login</h1>
                 <h4>Username</h4>
-                <input type="text" class="input">
+                <input name="email" type="text" class="input">
+                @if ($errors->has('email'))
+                    <span class="invalid-feedback">
+                        <strong>{{ $errors->first('email') }}</strong>
+                    </span>
+                @endif
                 <br>
                 <h4>Password</h4>
-                <input type="text" class="input">
+                <input name="password" type="password" class="input">
+                @if ($errors->has('password'))
+                    <span class="invalid-feedback">
+                        <strong>{{ $errors->first('password') }}</strong>
+                    </span>
+                @endif
                 <p>forgot password</p>
                 <button>Login</button>
             </div>

@@ -13,15 +13,23 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+// Route::get('/', function () {
+//     return view('welcome');
+// });
+
+Route::get('/', [App\Http\Controllers\HomeController::class, 'getHome']);
+
+Route::get('/test', function () {
+    return view('test.home.home');
 });
+
 Route::post('test/auth/authanticate', [App\Http\Controllers\AuthController::class, 'authanticate']);
 Route::get('test/auth/login', [App\Http\Controllers\AuthController::class, 'login']);
 
 Route::get('test/auth/logout', [App\Http\Controllers\AuthController::class, 'logout']);
 
 Route::get('/login', 'App\Http\Controllers\AuthController' .'@login');
+Route::post('/login', 'App\Http\Controllers\AuthController' .'@authanticate');
 
 Route::get('/file-import',[App\Http\Controllers\UserController::class,
         'importView'])->name('import-view');
@@ -35,6 +43,8 @@ Route::group(['namespace' => 'App\Http\Controllers', 'prefix' => 'simbiling', 'm
 
 Route::group(['namespace' => 'App\Http\Controllers', 'prefix' => 'simbiling', 'middlewareGroup' => ['web']], function () {
        Route::get('dashboard', [App\Http\Controllers\DashboardController::class, 'getDashboard']);
+       Route::get('/', [App\Http\Controllers\HomeController::class, 'getHome']);
+       Helper::makeRoute('content', 'ContentController');
     });
 
 Route::group(['namespace' => 'App\Http\Controllers', 'prefix' => 'test', 'middlewareGroup' => ['web']], function () {
