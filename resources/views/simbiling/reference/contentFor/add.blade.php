@@ -35,7 +35,10 @@
                                 <input type="text" name="description" class="form-control mt-2" id="description" placeholder="Description">
                                 <label for="description">Description</label>
                             </div>
-                            
+                            <div class="form-floating">
+                                <input type="number" name="seq" class="form-control mt-2" id="seq" placeholder="Description">
+                                <label for="seq">Sequence</label>
+                            </div>
                             <!-- <div class="form-floating">
                                 <input type="password" name="password" class="form-control mt-2" id="password" placeholder="Password">
                                 <label for="password">Password</label>

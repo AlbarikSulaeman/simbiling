@@ -45,6 +45,7 @@ Route::group(['namespace' => 'App\Http\Controllers', 'prefix' => 'simbiling', 'm
        Route::get('dashboard', [App\Http\Controllers\DashboardController::class, 'getDashboard']);
        Route::get('/', [App\Http\Controllers\HomeController::class, 'getHome']);
        Helper::makeRoute('content', 'ContentController');
+       Helper::makeRoute('contentfor', 'ContentForController');
     });
 
 Route::group(['namespace' => 'App\Http\Controllers', 'prefix' => 'test', 'middlewareGroup' => ['web']], function () {

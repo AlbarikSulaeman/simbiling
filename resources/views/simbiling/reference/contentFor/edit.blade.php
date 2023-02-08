@@ -21,26 +21,23 @@
                 <div class="container">
                     <h5 class="sidebar-heading" ><a href="/register"style="color: black; text-decoration: none;"><-kembali</a></h5>
                     <main class="form-register">
-                        <form action="/simbiling/content/edit/{{$content->_id}}" method="POST">
+                        <form action="/simbiling/contentfor/edit/{{$contentfor->_id}}" method="POST">
                            @csrf
                            
-                            <h1 class="h3 mb-3 fw-normal">Edit Content</h1>
+                            <h1 class="h3 mb-3 fw-normal">Edit Content For</h1>
 
                             <div class="form-floating">
-                                <input type="text" name="name" class="form-control mt-2" id="name" placeholder="Name" value="{{$content->name}}">
+                                <input type="text" name="name" class="form-control mt-2" id="name" placeholder="Name" value="{{$contentfor->name}}>
                                 <label for="name">Name</label>
                             </div>
+
                             <div class="form-floating">
-                                <input type="text" name="title" class="form-control mt-2" id="title" placeholder="title" value="{{$content->title}}">
-                                <label for="title">Title</label>
+                                <input type="text" name="description" class="form-control mt-2" id="description" placeholder="Description"value="{{$contentfor->description}}>
+                                <label for="description">Description</label>
                             </div>
                             <div class="form-floating">
-                                <input type="text" name="content" class="form-control mt-2" id="content" placeholder="content" value="{{$content->content}}">
-                                <label for="content">Content</label>
-                            </div>
-                            <div class="form-floating">
-                                <input type="text" name="contentFor" class="form-control mt-2" id="contentFor" placeholder="contentFor" value="{{$content->contentFor}}">
-                                <label for="contentFor">Content Untuk</label>
+                                <input type="number" name="seq" class="form-control mt-2" id="seq" placeholder="Description" value="{{$contentfor->seq}}>
+                                <label for="seq">Sequence</label>
                             </div>
                             <!-- <div class="form-floating">
                                 <input type="password" name="password" class="form-control mt-2" id="password" placeholder="Password">
