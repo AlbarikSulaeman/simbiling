@@ -15,7 +15,7 @@ class ContentForController extends Controller
     public function index()
     {
         $contentFor=ContentFor::get();
-        return view('simbiling.reference.contentFor.show', compact('contentFor'));
+        return view('simbiling.reference.contentfor.show', compact('contentFor'));
     }
 
     /**
@@ -26,7 +26,7 @@ class ContentForController extends Controller
     public function create()
     {
         $contentFor=ContentFor::get();
-        return view('simbiling.reference.contentFor.add');
+        return view('simbiling.reference.contentfor.add');
     }
 
     /**
@@ -49,7 +49,7 @@ class ContentForController extends Controller
 
         ContentFor::create($validateData);
 
-        return redirect('simbiling/contentFor')->with('success', 'Registrasi berhasil!');
+        return redirect('simbiling/contentfor')->with('success', 'Registrasi berhasil!');
     }
 
     /**
@@ -72,7 +72,7 @@ class ContentForController extends Controller
     public function edit($id)
     {
         $contentFor=ContentFor::find($id);
-        return view('simbiling.reference.contentFor.edit', compact('contentFor'));
+        return view('simbiling.reference.contentfor.edit', compact('contentFor'));
     }
 
     /**
@@ -99,7 +99,7 @@ class ContentForController extends Controller
         $contentFor->update($validateData);
 
         //return $contentFor;
-        return redirect('simbiling/contentFor')->with('success', 'Edit Berhasil');
+        return redirect('simbiling/contentfor')->with('success', 'Edit Berhasil');
     }
 
     /**
@@ -112,7 +112,7 @@ class ContentForController extends Controller
     {
         ContentFor::destroy($id);
         
-        return redirect('simbiling/contentFor')
+        return redirect('simbiling/contentfor')
         ->with('success','Berhasil Hapus !');
     }
 }

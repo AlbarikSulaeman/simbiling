@@ -103,7 +103,7 @@ class Helper {
                 }
             }
 
-            debug('label ' . $label);
+            // debug('label ' . $label);
             if (strlen($label) > 50) {
                 $label = substr($label, 0, 50) . ' ...';
             }
