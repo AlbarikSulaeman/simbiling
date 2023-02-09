@@ -1,4 +1,5 @@
-<?php
+@extends('simbiling._layout.app')
+@section('content')<?php
     $abc = Helper::toOptions(Helper::getContentFor(),'name', 'slug', false);
     // dd($abc);
 ?>
@@ -8,14 +9,14 @@
                 <h2>Data Content</h2>
             </div>
             <div class="pull-left">
-                <div><a href="/simbiling/contentfor/add">add</a></div>
+                <div><button style="background: red; border: 1px solid red; border-radius: 3px; width: 60px;"><a href="/simbiling/contentfor/add" style="color: white;">add</a></button></div>
             </div>
             </div>
         </div>
     </div>
     <br>
      
-    <table class="table table-bordered">
+    <table class="table table-hover" style="text-align: center;">
         <tr>
             @php
             $i = 1;
@@ -28,12 +29,12 @@
         </tr>
         @foreach ($contentFor as $contentfors)
         <tr>
-            <td>{{ $i++ }}</td>
+            <td><input type="checkbox" name="" id="" class="mr-3">{{ $i++ }}</td>
             <td>{{ $contentfors->name }}</td>
             <td>{{ $contentfors->description }}</td>
             <td>{{ $contentfors->seq }}</td>
-            <td><a href="/simbiling/contentfor/edit/{{ $contentfors->_id }}">edit</a></td>
-            <td><a href="/simbiling/contentfor/delete/{{ $contentfors->_id }}">hapus</a></td>
+            <td><a href="/simbiling/contenfor/edit/{{ $contentfors->_id }}" ><i class="bi bi-pencil-square mr-4"></i></a><a href="/simbiling/contentfor/delete/{{ $contenfors->_id }}"><i class="bi bi-trash3-fill"></i></a></td>
         </tr>
         @endforeach
     </table>
+    @endsection

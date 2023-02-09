@@ -3,10 +3,11 @@
 <div class="row">
         <div class="col-lg-12 margin-tb">
             <div class="pull-left">
+                <br>
                 <h2>Data Content</h2>
             </div>
             <div class="pull-left">
-                <div><button><a href="/simbiling/role/add">add</a></button></div>
+                <div><button style="background: red; border: 1px solid red; border-radius: 3px; width: 60px;"><a href="/simbiling/role/add" style="color: white;">add</a></button></div>
             </div>
             </div>
         </div>
@@ -21,7 +22,7 @@
       </div>
       <br>
      
-    <table class="table table-bordered">
+    <table class="table table-hover" style="text-align: center;">
         <tr>
             @php
             $i = 1;
@@ -35,14 +36,12 @@
         </tr>
         @foreach ($role as $roles)
         <tr>
-            <td>{{ $i++ }}</td>
+            <td><input type="checkbox" class="mr-3">{{ $i++ }}</td>
             <td>{{ $roles->role }}</td>
             <td>{{ $roles->description }}</td>
             <td>{{ $roles->slug }}</td>
             <td>{{ $roles->type }}</td>
-            <td><a href="/simbiling/role/edit/{{ $roles->_id }}">edit</a><a href="/simbiling/role/delete/{{ $roles->_id }}">hapus</a></td>
-            <td><a href="/simbiling/role/delete/{{ $roles->_id }}">hapus</a></td>
-        </tr>
+            <td><a href="/simbiling/role/edit/{{ $roles->_id }}" ><i class="bi bi-pencil-square mr-4"></i></a><a href="/simbiling/role/delete/{{ $roles->_id }}"><i class="bi bi-trash3-fill"></i></a></td>
         @endforeach
     </table>
     @endsection

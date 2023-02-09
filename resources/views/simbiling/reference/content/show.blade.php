@@ -5,9 +5,9 @@
             <div class="pull-left">
                 <br>
                 <h2>Data Content</h2>
-            </div>
-            <div class="pull-left">
-                <div><button style="background: red; border: 1px solid red; border-radius: 3px; width: 60px;"><a href="/simbiling/content/add" style="color: white;">add</a></button></div>
+                <div class="pull-left">
+                    <div><button style="background: red; border: 1px solid red; border-radius: 3px; width: 60px; float: right;"><a href="/simbiling/content/add" style="color: white;">add</a></button></div>
+                </div>
             </div>
             </div>
         </div>
@@ -41,7 +41,7 @@
                 <td>{{ $contents->title }}</td>
                 <td>{{ $contents->content }}</td>
                 <td>{{ $contents->contentFor }}</td>
-                <td><i class="bi bi-pencil-square mr-4"><a href="/simbiling/content/edit/{{ $contents->_id }}"></a></i><i class="bi bi-trash3-fill"><a href="/simbiling/content/delete/{{ $contents->_id }}"></a></i></td>
+                <td><a href="/simbiling/content/edit/{{ $contents->_id }}" ><i class="bi bi-pencil-square mr-4"></i></a><a href="/simbiling/content/delete/{{ $contents->_id }}"><i class="bi bi-trash3-fill"></i></a></td>
             </tr>
             
             @endforeach

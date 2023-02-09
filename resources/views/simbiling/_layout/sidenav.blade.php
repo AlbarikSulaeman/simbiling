@@ -72,6 +72,30 @@
     <span class="sidenav-normal"> Content </span>
     </a>
     </li>
+    <li class="nav-item">
+    <a href="contentfor" class="nav-link">
+    {{-- <span class="sidenav-mini-icon"> P </span> --}}
+    <span class="sidenav-normal"> ContentFor </span>
+    </a>
+    </li>
+    <li class="nav-item">
+    <a href="rayon" class="nav-link">
+    {{-- <span class="sidenav-mini-icon"> P </span> --}}
+    <span class="sidenav-normal"> Rayon </span>
+    </a>
+    </li>
+    <li class="nav-item">
+    <a href="content" class="nav-link">
+    {{-- <span class="sidenav-mini-icon"> P </span> --}}
+    <span class="sidenav-normal"> Rombel </span>
+    </a>
+    </li>
+    <li class="nav-item">
+    <a href="role" class="nav-link">
+    {{-- <span class="sidenav-mini-icon"> P </span> --}}
+    <span class="sidenav-normal"> Role </span>
+    </a>
+    </li>
   </ul>
 </div>
 </li>
