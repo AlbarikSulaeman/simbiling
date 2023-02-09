@@ -44,10 +44,10 @@ Route::group(['namespace' => 'App\Http\Controllers', 'prefix' => 'simbiling', 'm
 Route::group(['namespace' => 'App\Http\Controllers', 'prefix' => 'simbiling', 'middlewareGroup' => ['web']], function () {
        Route::get('dashboard', [App\Http\Controllers\DashboardController::class, 'getDashboard']);
        Route::get('/', [App\Http\Controllers\HomeController::class, 'getHome']);
-       Helper::makeRoute('content', 'ContentController');
-       Helper::makeRoute('contentfor', 'ContentForController');
-       Helper::makeRoute('role', 'RoleController');
-       Helper::makeRoute('rayon', 'RayonController');
+       \App\Helpers\Helper::makeRoute('content', 'ContentController');
+       \App\Helpers\Helper::makeRoute('contentfor', 'ContentForController');
+       \App\Helpers\Helper::makeRoute('role', 'RoleController');
+       \App\Helpers\Helper::makeRoute('rayon', 'RayonController');
     });
 
 Route::group(['namespace' => 'App\Http\Controllers', 'prefix' => 'test', 'middlewareGroup' => ['web']], function () {
