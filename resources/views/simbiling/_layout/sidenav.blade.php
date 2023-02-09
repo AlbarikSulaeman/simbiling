@@ -5,13 +5,13 @@
     <ul class="navbar-nav">
       <li class="nav-item">
         <a class="nav-link active" href="examples/dashboard.html">
-          <i class="ni ni-tv-2 text-primary"></i>
+          <i class="bi bi-border-all"></i>
           <span class="nav-link-text">Dashboard</span>
         </a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="#navbar-1" data-toggle="collapse" role="button" aria-expanded="false" aria-controls="navbar-1">
-        <i class="ni ni-ungroup text-orange"></i>
+          <i class="bi bi-bar-chart-line-fill"></i>
         <span class="nav-link-text">Data</span>
         </a>
         <div class="collapse" id="navbar-1">
@@ -39,7 +39,7 @@
     </li>
     <li class="nav-item">
       <a class="nav-link" href="#navbar-2" data-toggle="collapse" role="button" aria-expanded="false" aria-controls="navbar-2">
-      <i class="ni ni-ungroup text-orange"></i>
+      <i class="bi bi-people-fill"></i>
       <span class="nav-link-text">Bimbingan</span>
       </a>
       <div class="collapse" id="navbar-2">
@@ -61,7 +61,7 @@
   </li>
   <li class="nav-item">
     <a class="nav-link" href="#navbar-3" data-toggle="collapse" role="button" aria-expanded="false" aria-controls="navbar-3">
-    <i class="ni ni-ungroup text-orange"></i>
+    <i class="bi bi-box-fill"></i>
     <span class="nav-link-text">Reference</span>
     </a>
     <div class="collapse" id="navbar-3">
@@ -77,13 +77,13 @@
 </li>
       <li class="nav-item">
         <a class="nav-link" href="examples/icons.html">
-          <i class="ni ni-planet text-orange"></i>
+          <i class="bi bi-mortarboard-fill"></i>
           <span class="nav-link-text">Edukasi</span>
         </a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="examples/profile.html">
-          <i class="ni ni-single-02 text-yellow"></i>
+          <i class="bi bi-newspaper"></i>
           <span class="nav-link-text">Test Riasec</span>
         </a>
       </li>

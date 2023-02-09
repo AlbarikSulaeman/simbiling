@@ -34,7 +34,7 @@
           </li>
           <li class="nav-item dropdown">
             <a class="nav-link" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              <i class="ni ni-bell-55"></i>
+              <i class="bi bi-envelope"></i>
             </a>
             <div class="dropdown-menu dropdown-menu-xl  dropdown-menu-right  py-0 overflow-hidden">
               <!-- Dropdown header -->
@@ -145,7 +145,7 @@
           </li>
           <li class="nav-item dropdown">
             <a class="nav-link" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              <i class="ni ni-ungroup"></i>
+              <i class="bi bi-three-dots"></i>
             </a>
             <div class="dropdown-menu dropdown-menu-lg dropdown-menu-dark bg-default  dropdown-menu-right ">
               <div class="row shortcuts px-4">
@@ -197,7 +197,7 @@
                   <img alt="Image placeholder" src="../assets/argon/img/theme/team-4.jpg">
                 </span>
                 <div class="media-body  ml-2  d-none d-lg-block">
-                  <span class="mb-0 text-sm  font-weight-bold">John Snow</span>
+                  <span class="mb-0 text-sm  font-weight-bold">Simbiling</span>
                 </div>
               </div>
             </a>

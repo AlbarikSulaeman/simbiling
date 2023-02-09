@@ -30,7 +30,7 @@
     </div>
   </div>
   <div class="col-12">
-    <div class="card p-4">
+    <div class="card p-4" style="height:50vh">
       <div class="body-card">
         <span class="text-dark label-dashboard">Kelas 10</span><br>
         <span class="text-dark">10</span><br>
