@@ -1,4 +1,5 @@
-
+@extends('simbiling._layout.app')
+@section('content')
         <div class="row justify-content-center">
             <div class="col-lg-5">
                 
@@ -19,7 +20,7 @@
                 </div>
 @endif
                 <div class="container">
-                    <h5 class="sidebar-heading" ><a href="/register"style="color: black; text-decoration: none;"><-kembali</a></h5>
+                    <h5 class="sidebar-heading" ><a href="/simbiling/content"style="color: black; text-decoration: none;"><-kembali</a></h5>
                     <main class="form-register">
                         <form action="/simbiling/content/edit/{{$content->_id}}" method="POST">
                            @csrf
@@ -55,3 +56,4 @@
                 </div>
             </div>
         </div>
+        @endsection
