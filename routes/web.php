@@ -18,6 +18,7 @@ use Illuminate\Support\Facades\Route;
 // });
 
 Route::get('/', [App\Http\Controllers\HomeController::class, 'getHome']);
+Route::get('/logout', [App\Http\Controllers\AuthController::class, 'logout']);
 
 Route::get('/test', function () {
     return view('test.home.home');
@@ -42,12 +43,12 @@ Route::group(['namespace' => 'App\Http\Controllers', 'prefix' => 'simbiling', 'm
 });
 
 Route::group(['namespace' => 'App\Http\Controllers', 'prefix' => 'simbiling', 'middlewareGroup' => ['web']], function () {
-       Route::get('dashboard', [App\Http\Controllers\DashboardController::class, 'getDashboard']);
+       Route::get('dashboard', [App\Http\Controllers\DashboardController::class, 'getDashboard'])->middleware('admin');
        Route::get('/', [App\Http\Controllers\HomeController::class, 'getHome']);
-       \App\Helpers\Helper::makeRoute('content', 'ContentController');
-       \App\Helpers\Helper::makeRoute('contentfor', 'ContentForController');
-       \App\Helpers\Helper::makeRoute('role', 'RoleController');
-       \App\Helpers\Helper::makeRoute('rayon', 'RayonController');
+       \App\Helpers\Helper::makeAdminRoute('content', 'ContentController');
+       \App\Helpers\Helper::makeAdminRoute('contentfor', 'ContentForController');
+       \App\Helpers\Helper::makeAdminRoute('role', 'RoleController');
+       \App\Helpers\Helper::makeAdminRoute('rayon', 'RayonController');
     });
 
 Route::group(['namespace' => 'App\Http\Controllers', 'prefix' => 'test', 'middlewareGroup' => ['web']], function () {
