@@ -1,24 +1,12 @@
-<!--
-=========================================================
-* Argon Dashboard - v1.2.0
-=========================================================
-* Product Page: https://www.creative-tim.com/product/argon-dashboard
-
-
-* Copyright  Creative Tim (http://www.creative-tim.com)
-* Coded by www.creative-tim.com
-
-
-
-=========================================================
-* The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
--->
 <!DOCTYPE html>
 <html>
 
 <head>
- @include('simbiling._layout.header')
- @yield('css')
+  @include('simbiling._layout.header')
+  @yield('css')
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+  <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.2.1/chart.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.2.1/chart.js"></script> -->
 </head>
 
 <body>
@@ -43,7 +31,7 @@
     <div class="header pb-6">
       <div class="container-fluid">
         <div class="header-body">
-            @yield('content')
+          @yield('content')
         </div>
       </div>
       @include('simbiling._layout.footer')
