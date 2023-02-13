@@ -1,4 +1,4 @@
-@extends('simbiling._layout.admin')
+@extends('simbiling._layout.user')
 @section('content')
 <br>
 <div class="row">
