@@ -1,4 +1,4 @@
-@extends('simbiling._layout.app')
+@extends('simbiling._layout.admin')
 @section('content')
 <link rel="stylesheet" href="/assets/css/main.css">
 
