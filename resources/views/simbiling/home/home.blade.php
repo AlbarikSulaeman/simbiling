@@ -48,8 +48,8 @@
       </a>
       <nav id="navbar" class="navbar">
         <ul>
-          <li><a href="#hero">Home</a></li>
-          <li><a href="#contact">Contact</a></li>
+          <li><a href="">Home</a></li>
+          <li><a href="/contact">Contact</a></li>
           <button class="login"><a href="login">Login</a></button>
         </ul>
       </nav><!-- .navbar -->

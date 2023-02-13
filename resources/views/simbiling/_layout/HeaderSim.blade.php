@@ -34,11 +34,10 @@
   * Author: BootstrapMade.com
   * License: https://bootstrapmade.com/license/
   ======================================================== -->
+ 
 </head>
 
 <body>
-
-  <!-- ======= Header ======= -->
   <header id="header" class="header d-flex align-items-center">
     <div class="container-fluid container-xl d-flex align-items-center justify-content-between">
       <a href="index.html" class="logo d-flex align-items-center">
@@ -48,49 +47,17 @@
       </a>
       <nav id="navbar" class="navbar">
         <ul>
-          <li><a href="#hero">Home</a></li>
-          <li><a href="#contact">Contact</a></li>
-          <button class="login"><a href="#login">Login</a></button>
+          <li><a href="/home">Home</a></li>
+          <li><a href="/contact">Contact</a></li>
+          <button class="login"><a href="/login">Login</a></button>
         </ul>
       </nav><!-- .navbar -->
       <i class="mobile-nav-toggle mobile-nav-show bi bi-list"></i>
       <i class="mobile-nav-toggle mobile-nav-hide d-none bi bi-x"></i>
     </div>
-  </header><!-- End Header -->
-  <!-- End Header -->
-
-  <!-- ======= Hero Section ======= -->
+  </header>
   <section id="hero" class="hero">
-    <div class="container position-relative">
-      <div class="row gy-5 ms-3" data-aos="fade-in">
-        <div class="col-lg-6 order-2 order-lg-1 d-flex flex-column justify-content-center text-center text-lg-start">
-          <h2>Contact Us</h2>
-          <p>Fill up the form and our Team will get back to you within 24 hour.</p>
-          <!-- <div class="d-flex justify-content-center justify-content-lg-start">
-            <a href="#about" class="btn-get-started">Get Started</a>
-          </div> -->
-        </div>
-        <div class="col-lg-6 order-1 order-lg-2">
-          <!-- <img src="assets/img/landing_fying.png" class="img-fluid" alt="" data-aos="zoom-out" data-aos-delay="100"> -->
-        </div>
-      </div>
-    </div>
+    @yield('content')
   </section>
-  <!-- End Hero Section -->
-  </div>
-  </div>
-  <!-- Vendor JS Files -->
-  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-  <script src="assets/vendor/aos/aos.js"></script>
-  <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
-  <script src="assets/vendor/purecounter/purecounter_vanilla.js"></script>
-  <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
-  <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
-  <script src="assets/vendor/php-email-form/validate.js"></script>
-
-  <!-- Template Main JS File -->
-  <script src="assets/js/main.js"></script>
-
 </body>
-
 </html>
