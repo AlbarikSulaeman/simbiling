@@ -1,4 +1,4 @@
-@extends('simbiling._layout.app')
+@extends('simbiling._layout.admin')
 @section('content')
 <div class="row">
         <div class="col-lg-12 margin-tb">
@@ -41,13 +41,15 @@
                 <td>{{ $contents->title }}</td>
                 <td>{{ $contents->content }}</td>
                 <td>{{ $contents->contentFor }}</td>
-                <td><button type="button" onclick="editData('{{$contents->_id}}')" style="border: none; background-color: #f8f9fe;"><i class="bi bi-pencil-square mr-4"></i></button><a href="/simbiling/content/delete/{{ $contents->_id }}"><i class="bi bi-trash3-fill"></i></a></td>
+                <td><button type="button" class="" onclick="editData('{{$contents->_id}}')" style="border: none; background-color: #f8f9fe;"><i class="bi bi-pencil-square mr-4"></i></button><a href="/simbiling/content/delete/{{ $contents->_id }}"><i class="bi bi-trash3-fill"></i></a></td>
             </tr>
             
             @endforeach
         </tbody>
         
     </table>
+
+    {{-- MODAL --}}
     <div class="modal fade" id="content-edit-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
         aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered" role="document">
@@ -58,7 +60,7 @@
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
-                <form action="#" method="post">
+                <form action="#" method="post" id="content-edit-form">
                     <div class="modal-body">
 
                         @csrf
@@ -99,11 +101,13 @@
                     url: urlFirst.replace('+id+',id),
                     cache: false,
                     success: function(response){
+                        let url = '{{url("/simbiling/content/update/+id+")}}'
                         $("#content-edit-modal").modal("show")
                         $("#name-edit").val(response.name)
                         $("#title-edit").val(response.title)
                         $("#content-edit").val(response.content)
                         $("#contentFor-edit").val(response.contentFor)
+                        $('#content-edit-form').attr('action', url.replace('+id+', response._id))
                     }
                 })
             }

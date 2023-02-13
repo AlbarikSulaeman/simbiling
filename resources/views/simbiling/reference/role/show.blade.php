@@ -1,4 +1,4 @@
-@extends('simbiling._layout.app')
+@extends('simbiling._layout.admin')
 @section('content')
 <div class="row">
         <div class="col-lg-12 margin-tb">

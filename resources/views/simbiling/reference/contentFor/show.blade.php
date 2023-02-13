@@ -1,4 +1,4 @@
-@extends('simbiling._layout.app')
+@extends('simbiling._layout.admin')
 @section('content')<?php
     $abc = Helper::toOptions(Helper::getContentFor(),'name', 'slug', false);
     // dd($abc);

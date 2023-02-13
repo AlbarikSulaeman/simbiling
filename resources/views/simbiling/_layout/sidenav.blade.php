@@ -3,10 +3,16 @@
   <div class="collapse navbar-collapse" id="sidenav-collapse-main">
     <!-- Nav items -->
     <ul class="navbar-nav">
-      <li class="nav-item">
+      <li class="nav-item"> 
         <a class="nav-link active" href="examples/dashboard.html">
           <i class="bi bi-border-all"></i>
           <span class="nav-link-text">Dashboard</span>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="examples/profile.html">
+          <i class="bi bi-newspaper"></i>
+          <span class="nav-link-text">Test Riasec</span>
         </a>
       </li>
       <li class="nav-item">
@@ -61,10 +67,38 @@
   </li>
   <li class="nav-item">
     <a class="nav-link" href="#navbar-3" data-toggle="collapse" role="button" aria-expanded="false" aria-controls="navbar-3">
+      <i class="bi bi-mortarboard-fill"></i>
+    <span class="nav-link-text">Edukasi</span>
+    </a>
+    <div class="collapse" id="navbar-3">
+    <ul class="nav nav-sm flex-column">
+    <li class="nav-item">
+    <a href="../../pages/examples/pricing.html" class="nav-link">
+    {{-- <span class="sidenav-mini-icon"> P </span> --}}
+    <span class="sidenav-normal"> Kelas 10 </span>
+    </a>
+    </li>
+    <li class="nav-item">
+    <a href="../../pages/examples/login.html" class="nav-link">
+    {{-- <span class="sidenav-mini-icon"> L </span> --}}
+    <span class="sidenav-normal"> Kelas 11 </span>
+    </a>
+    </li>
+    <li class="nav-item">
+    <a href="../../pages/examples/register.html" class="nav-link">
+    {{-- <span class="sidenav-mini-icon"> R </span> --}}
+    <span class="sidenav-normal"> Kelas 12 </span>
+    </a>
+    </li>
+  </ul>
+</div>
+</li>
+  <li class="nav-item">
+    <a class="nav-link" href="#navbar-4" data-toggle="collapse" role="button" aria-expanded="false" aria-controls="navbar-4">
     <i class="bi bi-box-fill"></i>
     <span class="nav-link-text">Reference</span>
     </a>
-    <div class="collapse" id="navbar-3">
+    <div class="collapse" id="navbar-4">
     <ul class="nav nav-sm flex-column">
     <li class="nav-item">
     <a href="content" class="nav-link">
@@ -99,17 +133,5 @@
   </ul>
 </div>
 </li>
-      <li class="nav-item">
-        <a class="nav-link" href="examples/icons.html">
-          <i class="bi bi-mortarboard-fill"></i>
-          <span class="nav-link-text">Edukasi</span>
-        </a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="examples/profile.html">
-          <i class="bi bi-newspaper"></i>
-          <span class="nav-link-text">Test Riasec</span>
-        </a>
-      </li>
   </div>
 </div>
