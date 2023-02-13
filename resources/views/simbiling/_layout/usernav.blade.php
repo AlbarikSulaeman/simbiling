@@ -9,6 +9,12 @@
             <span class="nav-link-text">Dashboard</span>
           </a>
         </li>
+         <li class="nav-item">
+          <a class="nav-link" href="#">
+            <i class="bi bi-calendar-check-fill"></i>
+            <span class="nav-link-text">Jadwal Bimbingan</span>
+          </a>
+        </li>
         <li class="nav-item">
             <a class="nav-link" href="#navbar-1" data-toggle="collapse" role="button" aria-expanded="false" aria-controls="navbar-1">
               <i class="bi bi-newspaper"></i>
