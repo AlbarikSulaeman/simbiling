@@ -25,6 +25,16 @@ class Helper {
         Route::get($controller.'/delete/{id}', $controller_class .'@destroy')->middleware('admin');
     }
 
+    public static function makeTeacherRoute($controller, $controller_class){
+
+        Route::get($controller, $controller_class .'@index')->middleware('teacher');
+        Route::get($controller.'/add', $controller_class .'@create')->middleware('teacher');
+        Route::post($controller.'/add', $controller_class .'@store')->middleware('teacher');
+        Route::get($controller.'/edit/{id}', $controller_class .'@edit')->middleware('teacher');
+        Route::post($controller.'/edit/{id}', $controller_class .'@update')->middleware('teacher');
+        Route::get($controller.'/delete/{id}', $controller_class .'@destroy')->middleware('teacher');
+    }
+
 
     public static function randomstring($length = 5, $type = 'numeric'){
         $a = '';
