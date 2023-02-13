@@ -41,11 +41,71 @@
                 <td>{{ $contents->title }}</td>
                 <td>{{ $contents->content }}</td>
                 <td>{{ $contents->contentFor }}</td>
-                <td><a href="/simbiling/content/edit/{{ $contents->_id }}" ><i class="bi bi-pencil-square mr-4"></i></a><a href="/simbiling/content/delete/{{ $contents->_id }}"><i class="bi bi-trash3-fill"></i></a></td>
+                <td><button type="button" onclick="editData('{{$contents->_id}}')" style="border: none; background-color: #f8f9fe;"><i class="bi bi-pencil-square mr-4"></i></button><a href="/simbiling/content/delete/{{ $contents->_id }}"><i class="bi bi-trash3-fill"></i></a></td>
             </tr>
             
             @endforeach
         </tbody>
         
     </table>
+    <div class="modal fade" id="content-edit-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <form action="#" method="post">
+                    <div class="modal-body">
+
+                        @csrf
+                        @method('put')
+                        <div class="form-group">
+                            <label for="name">Name</label>
+                            <input type="text" class="form-control" id="name-edit">
+                        </div>
+                        <div class="form-group">
+                            <label for="name">Title</label>
+                            <input type="text" class="form-control" id="title-edit">
+                        </div>
+                        <div class="form-group">
+                            <label for="name">Content</label>
+                            <input type="text" class="form-control" id="content-edit">
+                        </div>
+                        <div class="form-group">
+                            <label for="name">Content For</label>
+                            <input type="text" class="form-control" id="contentFor-edit">
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-primary">Save changes</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    @endsection
+    @section('js')
+        <script>
+            function editData(id) {
+                let urlFirst = '{{url("/simbiling/content/edit/+id+")}}'
+                    
+                $.ajax({
+                    type: 'get',
+                    url: urlFirst.replace('+id+',id),
+                    cache: false,
+                    success: function(response){
+                        $("#content-edit-modal").modal("show")
+                        $("#name-edit").val(response.name)
+                        $("#title-edit").val(response.title)
+                        $("#content-edit").val(response.content)
+                        $("#contentFor-edit").val(response.contentFor)
+                    }
+                })
+            }
+        </script>
     @endsection

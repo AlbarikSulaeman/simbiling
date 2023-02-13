@@ -49,9 +49,7 @@
                             </div> -->
                             <button class="w-100 btn btn-lg btn-primary mt-4" type="submit">Ubah</button>
                             
-                        </form>
-
-                        
+                        </form>    
                     </main>
                 </div>
             </div>

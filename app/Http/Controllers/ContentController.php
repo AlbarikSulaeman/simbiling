@@ -72,7 +72,8 @@ class ContentController extends Controller
     public function edit($id)
     {
         $content=Content::find($id);
-        return view('simbiling.reference.content.edit', compact('content'));
+        return response()->json($content);
+        // return view('simbiling.reference.content.edit', compact('content'));
     }
 
     /**
