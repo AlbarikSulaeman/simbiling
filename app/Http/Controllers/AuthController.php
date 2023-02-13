@@ -121,7 +121,7 @@ class AuthController extends Controller
            
 
             //return redirect()->intended('/register');
-            return redirect("/test/auth")->with('success', 'login berhasil!');
+            return redirect("/simbiling/dashboard")->with('success', 'login berhasil!');
         }
         return back()->with('success', 'Login gagal! Silahkan coba lagi');
     }
@@ -136,4 +136,6 @@ class AuthController extends Controller
 
         return redirect('/');
     }
+
+
 }

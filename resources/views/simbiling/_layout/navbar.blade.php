@@ -32,6 +32,15 @@
               <i class="ni ni-zoom-split-in"></i>
             </a>
           </li>
+          <?php
+          use App\Models\Notification;
+          use Carbon\Carbon;
+
+          $role = Auth::user()->roleSlug;
+          $notif = Notification::where('reciever', $role)->orderBy('send_at', 'desc')->paginate(5);
+          $notifcount = Notification::where('reciever', $role)->count();
+          
+          ?>
           <li class="nav-item dropdown">
             <a class="nav-link" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               <i class="bi bi-envelope"></i>
@@ -39,105 +48,47 @@
             <div class="dropdown-menu dropdown-menu-xl  dropdown-menu-right  py-0 overflow-hidden">
               <!-- Dropdown header -->
               <div class="px-3 py-3">
-                <h6 class="text-sm text-muted m-0">You have <strong class="text-primary">13</strong> notifications.</h6>
-              </div>
+                @if($notifcount > 0)
+                  <h6 class="text-sm text-muted m-0">You have <strong class="text-primary">{{$notifcount}}</strong> notifications.</h6>
+                @else
+                  <h6 class="text-sm text-muted m-0">Nothing.</h6>
+                @endif
+                </div>
               <!-- List group -->
               <div class="list-group list-group-flush">
+                @foreach($notif as $nf)
+                <?php
+                  $today = Carbon::now()->toDateTimeString();
+                  $to = Carbon::createFromFormat('Y-m-d H:s:i', $today);
+                  // $send = $nf->implode('send_at',',');
+                  $from = Carbon::createFromFormat('Y-m-d H:s:i', $nf->send_at);
+            
+                  $diffs = $to->diffInHours($from);
+                  if ($diffs <= 24) {
+                    $diff = $diffs.' hrs';
+                  }else{
+                    $diff = $to->diffInDays($from).' days';
+                  }
+
+                ?>
                 <a href="#!" class="list-group-item list-group-item-action">
                   <div class="row align-items-center">
+                    
                     <div class="col-auto">
-                      <!-- Avatar -->
-                      <img alt="Image placeholder" src="../assets/argon/img/theme/team-1.jpg" class="avatar rounded-circle">
-                    </div>
-                    <div class="col ml--2">
                       <div class="d-flex justify-content-between align-items-center">
                         <div>
-                          <h4 class="mb-0 text-sm">John Snow</h4>
+                          <h4 class="mb-0 text-sm">{{$nf->sender}}</h4>
                         </div>
                         <div class="text-right text-muted">
-                          <small>2 hrs ago</small>
+                          <small>{{$diff}} ago</small>
                         </div>
                       </div>
-                      <p class="text-sm mb-0">Let's meet at Starbucks at 11:30. Wdyt?</p>
+                      <p class="text-sm mb-0">{{$nf->notification}}</p>
                     </div>
                   </div>
                 </a>
-                <a href="#!" class="list-group-item list-group-item-action">
-                  <div class="row align-items-center">
-                    <div class="col-auto">
-                      <!-- Avatar -->
-                      <img alt="Image placeholder" src="../assets/argon/img/theme/team-2.jpg" class="avatar rounded-circle">
-                    </div>
-                    <div class="col ml--2">
-                      <div class="d-flex justify-content-between align-items-center">
-                        <div>
-                          <h4 class="mb-0 text-sm">John Snow</h4>
-                        </div>
-                        <div class="text-right text-muted">
-                          <small>3 hrs ago</small>
-                        </div>
-                      </div>
-                      <p class="text-sm mb-0">A new issue has been reported for Argon.</p>
-                    </div>
-                  </div>
-                </a>
-                <a href="#!" class="list-group-item list-group-item-action">
-                  <div class="row align-items-center">
-                    <div class="col-auto">
-                      <!-- Avatar -->
-                      <img alt="Image placeholder" src="../assets/argon/img/theme/team-3.jpg" class="avatar rounded-circle">
-                    </div>
-                    <div class="col ml--2">
-                      <div class="d-flex justify-content-between align-items-center">
-                        <div>
-                          <h4 class="mb-0 text-sm">John Snow</h4>
-                        </div>
-                        <div class="text-right text-muted">
-                          <small>5 hrs ago</small>
-                        </div>
-                      </div>
-                      <p class="text-sm mb-0">Your posts have been liked a lot.</p>
-                    </div>
-                  </div>
-                </a>
-                <a href="#!" class="list-group-item list-group-item-action">
-                  <div class="row align-items-center">
-                    <div class="col-auto">
-                      <!-- Avatar -->
-                      <img alt="Image placeholder" src="../assets/argon/img/theme/team-4.jpg" class="avatar rounded-circle">
-                    </div>
-                    <div class="col ml--2">
-                      <div class="d-flex justify-content-between align-items-center">
-                        <div>
-                          <h4 class="mb-0 text-sm">John Snow</h4>
-                        </div>
-                        <div class="text-right text-muted">
-                          <small>2 hrs ago</small>
-                        </div>
-                      </div>
-                      <p class="text-sm mb-0">Let's meet at Starbucks at 11:30. Wdyt?</p>
-                    </div>
-                  </div>
-                </a>
-                <a href="#!" class="list-group-item list-group-item-action">
-                  <div class="row align-items-center">
-                    <div class="col-auto">
-                      <!-- Avatar -->
-                      <img alt="Image placeholder" src="../assets/argon/img/theme/team-5.jpg" class="avatar rounded-circle">
-                    </div>
-                    <div class="col ml--2">
-                      <div class="d-flex justify-content-between align-items-center">
-                        <div>
-                          <h4 class="mb-0 text-sm">John Snow</h4>
-                        </div>
-                        <div class="text-right text-muted">
-                          <small>3 hrs ago</small>
-                        </div>
-                      </div>
-                      <p class="text-sm mb-0">A new issue has been reported for Argon.</p>
-                    </div>
-                  </div>
-                </a>
+                @endforeach
+
               </div>
               <!-- View all -->
               <a href="#!" class="dropdown-item text-center text-primary font-weight-bold py-3">View all</a>
