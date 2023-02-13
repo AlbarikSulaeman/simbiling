@@ -29,27 +29,32 @@ Route::get('test/auth/login', [App\Http\Controllers\AuthController::class, 'logi
 
 Route::get('test/auth/logout', [App\Http\Controllers\AuthController::class, 'logout']);
 
-Route::get('/login', 'App\Http\Controllers\AuthController' .'@login');
-Route::post('/login', 'App\Http\Controllers\AuthController' .'@authanticate');
+Route::get('/login', 'App\Http\Controllers\AuthController' . '@login');
+Route::post('/login', 'App\Http\Controllers\AuthController' . '@authanticate');
 
-Route::get('/file-import',[App\Http\Controllers\UserController::class,
-        'importView'])->name('import-view');
-Route::post('/import',[App\Http\Controllers\UserController::class,
-        'import'])->name('import');
-Route::get('/export-users',[App\Http\Controllers\UserController::class,
-        'exportUsers'])->name('export');
+Route::get('/file-import', [
+    App\Http\Controllers\UserController::class,
+    'importView'
+])->name('import-view');
+Route::post('/import', [
+    App\Http\Controllers\UserController::class,
+    'import'
+])->name('import');
+Route::get('/export-users', [
+    App\Http\Controllers\UserController::class,
+    'exportUsers'
+])->name('export');
 Route::group(['namespace' => 'App\Http\Controllers', 'prefix' => 'simbiling', 'middlewareGroup' => ['web']], function () {
-
 });
 
 Route::group(['namespace' => 'App\Http\Controllers', 'prefix' => 'simbiling', 'middlewareGroup' => ['web']], function () {
-       Route::get('dashboard', [App\Http\Controllers\DashboardController::class, 'getDashboard'])->middleware('admin');
-       Route::get('/', [App\Http\Controllers\HomeController::class, 'getHome']);
-       \App\Helpers\Helper::makeAdminRoute('content', 'ContentController');
-       \App\Helpers\Helper::makeAdminRoute('contentfor', 'ContentForController');
-       \App\Helpers\Helper::makeAdminRoute('role', 'RoleController');
-       \App\Helpers\Helper::makeAdminRoute('rayon', 'RayonController');
-    });
+    Route::get('dashboard', [App\Http\Controllers\DashboardController::class, 'getDashboard'])->middleware('admin');
+    Route::get('/', [App\Http\Controllers\HomeController::class, 'getHome']);
+    \App\Helpers\Helper::makeAdminRoute('content', 'ContentController');
+    \App\Helpers\Helper::makeAdminRoute('contentfor', 'ContentForController');
+    \App\Helpers\Helper::makeAdminRoute('role', 'RoleController');
+    \App\Helpers\Helper::makeAdminRoute('rayon', 'RayonController');
+});
 
 Route::group(['namespace' => 'App\Http\Controllers', 'prefix' => 'test', 'middlewareGroup' => ['web']], function () {
     \App\Helpers\Helper::makeRoute('auth', 'AuthController');
@@ -65,4 +70,7 @@ Route::group(['namespace' => 'App\Http\Controllers', 'prefix' => 'test', 'middle
 
 Route::get('/contact', function () {
     return view('simbiling.reference.contact');
+});
+Route::get('/coba', function () {
+    return view('test.frontend.RPL.rekayasa');
 });
