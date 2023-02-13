@@ -26,7 +26,7 @@
   <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
 
   <!-- Template Main CSS File -->
-  <link href="assets/css/main.css" rel="stylesheet">
+  <link href="assets/css/HeaderSim.css" rel="stylesheet">
 
   <!-- =======================================================
   * Template Name: Impact - v1.2.0
@@ -37,7 +37,6 @@
  
 </head>
 
-<body>
   <header id="header" class="header d-flex align-items-center">
     <div class="container-fluid container-xl d-flex align-items-center justify-content-between">
       <a href="index.html" class="logo d-flex align-items-center">
@@ -56,8 +55,8 @@
       <i class="mobile-nav-toggle mobile-nav-hide d-none bi bi-x"></i>
     </div>
   </header>
-  <section id="hero" class="hero">
+  
+  <!-- <section id="hero" class="hero">
     @yield('content')
-  </section>
-</body>
+  </section> -->
 </html>

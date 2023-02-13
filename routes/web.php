@@ -64,5 +64,7 @@ Route::group(['namespace' => 'App\Http\Controllers', 'prefix' => 'test', 'middle
 });
 
 Route::get('/contact', function () {
-    return view('simbiling.reference.contact');
+    return view('contact');
 });
+
+
