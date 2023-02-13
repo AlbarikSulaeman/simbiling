@@ -28,10 +28,10 @@ Route::post('test/auth/authanticate', [App\Http\Controllers\AuthController::clas
 Route::get('test/auth/login', [App\Http\Controllers\AuthController::class, 'login']);
 
 Route::get('test/auth/logout', [App\Http\Controllers\AuthController::class, 'logout']);
-Route::get('dashboard-user', function(){
+Route::get('dashboard-user', function () {
     return view('simbiling.dashboard.user');
 });
-Route::get('edukasi-rpl', function(){
+Route::get('edukasi-rpl', function () {
     return view('simbiling.edukasi.rpl');
 });
 
@@ -78,6 +78,6 @@ Route::get('/contact', function () {
     return view('simbiling.reference.contact');
     return view('simbiling.edukasi.rpl');
 });
-Route::get('/coba', function () {
-    return view('test.frontend.RPL.rekayasa');
+Route::get('/cobarpl', function () {
+    return view('simbiling.edukasi.rpl');
 });
