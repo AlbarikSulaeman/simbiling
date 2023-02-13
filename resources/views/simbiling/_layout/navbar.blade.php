@@ -197,7 +197,7 @@
                   <img alt="Image placeholder" src="../assets/argon/img/theme/team-4.jpg">
                 </span>
                 <div class="media-body  ml-2  d-none d-lg-block">
-                  <span class="mb-0 text-sm  font-weight-bold">Simbiling</span>
+                  <span class="mb-0 text-sm  font-weight-bold">{{Auth::user()->name ?? 'Guest'}}</span>
                 </div>
               </div>
             </a>
@@ -222,7 +222,7 @@
                 <span>Support</span>
               </a> -->
               <div class="dropdown-divider"></div>
-              <a href="#!" class="dropdown-item">
+              <a href="/logout" class="dropdown-item">
                 <i class="ni ni-user-run"></i>
                 <span>Logout</span>
               </a>
