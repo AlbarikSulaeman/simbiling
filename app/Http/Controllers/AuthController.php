@@ -121,7 +121,14 @@ class AuthController extends Controller
            
 
             //return redirect()->intended('/register');
-            return redirect("/simbiling/dashboard")->with('success', 'login berhasil!');
+            if (Auth::user()->roleSlug == 'student') {
+                return redirect("/home-user")->with('success', 'login berhasil!');
+            }elseif (Auth::user()->roleSlug == 'admin') {
+                return redirect("/simbiling/dashboard")->with('success', 'login berhasil!');
+            }else{
+                return redirect("/login")->with('success', 'Something Wrong');
+            }
+            // return redirect("/simbiling/dashboard")->with('success', 'login berhasil!');
         }
         return back()->with('success', 'Login gagal! Silahkan coba lagi');
     }

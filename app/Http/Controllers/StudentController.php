@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Students;
+use App\Models\Users;
 
 class StudentController extends Controller
 {
@@ -15,7 +16,7 @@ class StudentController extends Controller
     public function index()
     {
         $student=Students::get();
-        return view('test.student.show', compact('student'));
+        return view('simbiling.admin.student.show', compact('student'));
     }
 
     /**
@@ -25,7 +26,7 @@ class StudentController extends Controller
      */
     public function create()
     {
-        return view('test.student.add');
+        return view('simbiling.admin.student.add');
     }
 
     /**
@@ -37,19 +38,36 @@ class StudentController extends Controller
     public function store(Request $request)
     {
         $validateData = $request->validate([
+            'email' => 'required|unique:students',
             'name' => 'required',
-            'nis' => 'required',
-            // 'rombel' => 'required',
+            'nis' => 'required|unique:students',
+            'rombel' => 'required',
+            'rayon' => 'required',
+            'status' => 'required',
+            'trouble',
+            'haveTrouble'
         ]);
 
-        $validateData['rombel'] = "RPL XII-5";
+        $validateData['haveTrouble'] = false;
 
+        $addUser = $request->validate([
+            'email',
+            'name',
+            'password',
+            'role',
+            'roleSlug',
+        ]);
 
+        $addUser['email'] = $validateData['email'];
+        $addUser['name'] = $validateData['name'];
+        $addUser['password'] = bcrypt($validateData['nis']);
+        $addUser['role'] = 'Student';
+        $addUser['roleSlug'] = 'student';
         
-
+        Users::create($addUser);
         Students::create($validateData);
 
-        return redirect('test/student')->with('success', 'Registrasi berhasil!');
+        return redirect('simbiling/student')->with('success', 'Registrasi berhasil!');
     }
 
     /**
@@ -72,7 +90,7 @@ class StudentController extends Controller
     public function edit($id)
     {
         $student=Students::find($id);
-        return view('test.student.edit', compact('student'));
+        return view('simbiling.admin.student.edit', compact('student'));
     }
 
     /**
@@ -96,7 +114,7 @@ class StudentController extends Controller
         $student->update($validateData);
 
         //return $student;
-        return redirect('test/student')->with('success', 'Edit Berhasil');
+        return redirect('simbiling/student')->with('success', 'Edit Berhasil');
     }
 
     /**
@@ -109,7 +127,7 @@ class StudentController extends Controller
     {
         Students::destroy($id);
         
-        return redirect('test/student')
+        return redirect('simbiling/student')
         ->with('success','Berhasil Hapus !');
     }
 }
