@@ -28,7 +28,7 @@ Route::post('test/auth/authanticate', [App\Http\Controllers\AuthController::clas
 Route::get('test/auth/login', [App\Http\Controllers\AuthController::class, 'login']);
 
 Route::get('test/auth/logout', [App\Http\Controllers\AuthController::class, 'logout']);
-Route::get('dashboard-user', function () {
+Route::get('home-user', function () {
     return view('simbiling.dashboard.user');
 });
 Route::get('edukasi-rpl', function () {
@@ -61,6 +61,7 @@ Route::group(['namespace' => 'App\Http\Controllers', 'prefix' => 'simbiling', 'm
     \App\Helpers\Helper::makeAdminRoute('role', 'RoleController');
     \App\Helpers\Helper::makeAdminRoute('rayon', 'RayonController');
     \App\Helpers\Helper::makeAdminRoute('notification', 'NotificationController');
+    \App\Helpers\Helper::makeAdminRoute('student', 'StudentController');
 });
 
 Route::group(['namespace' => 'App\Http\Controllers', 'prefix' => 'test', 'middlewareGroup' => ['web']], function () {

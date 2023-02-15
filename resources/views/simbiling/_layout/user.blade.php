@@ -23,7 +23,7 @@
 
 <body>
   <!-- Sidenav -->
-  <nav class="sidenav navbar navbar-vertical  fixed-left  navbar-expand-xs navbar-light bg-white" id="sidenav-main">
+  {{-- <nav class="sidenav navbar navbar-vertical  fixed-left  navbar-expand-xs navbar-light bg-white" id="sidenav-main">
     <div class="scrollbar-inner">
       <!-- Brand -->
       <div class="sidenav-header  align-items-center">
@@ -33,9 +33,9 @@
       </div>
       @include('simbiling._layout.usernav')
     </div>
-  </nav>
+  </nav> --}}
   <!-- Main content -->
-  <div class="main-content" id="panel">
+  <div class="main-content" id="pane  l">
     <!-- Topnav -->
     @include('simbiling._layout.navbaruser')
     <!-- Header -->

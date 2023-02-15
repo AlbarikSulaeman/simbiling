@@ -1,37 +1,79 @@
 <nav class="navbar navbar-top navbar-expand navbar-dark bg-white border-bottom">
     <div class="container-fluid">
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        {{-- <!-- Search form -->
-        <form class="navbar-search navbar-search-light form-inline mr-sm-3" id="navbar-search-main">
-          <div class="form-group mb-0">
-            <div class="input-group input-group-alternative input-group-merge">
-              <div class="input-group-prepend">
-                <span class="input-group-text"><i class="fas fa-search"></i></span>
-              </div>
-              <input class="form-control" placeholder="Search" type="text">
-            </div>
-          </div>
-          <button type="button" class="close" data-action="search-close" data-target="#navbar-search-main" aria-label="Close">
-            <span aria-hidden="true">×</span>
-          </button>
-        </form> --}}
-        <!-- Navbar links -->
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">  
         <ul class="navbar-nav align-items-center  ml-md-auto ">
-          <li class="nav-item d-xl-none">
-            <!-- Sidenav toggler -->
-            <div class="pr-3 sidenav-toggler sidenav-toggler-dark" data-action="sidenav-pin" data-target="#sidenav-main">
-              <div class="sidenav-toggler-inner">
-                <i class="sidenav-toggler-line"></i>
-                <i class="sidenav-toggler-line"></i>
-                <i class="sidenav-toggler-line"></i>
-              </div>
-            </div>
-          </li>
-          <li class="nav-item d-sm-none">
-            <a class="nav-link" href="#" data-action="search-show" data-target="#navbar-search-main">
-              <i class="ni ni-zoom-split-in"></i>
+        
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#nav-inner-primary" aria-controls="nav-inner-primary" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="nav-inner-primary">
+            <div class="navbar-collapse-header">
+            <div class="row">
+            <div class="col-6 collapse-brand">
+            <a href="./index.html">
+            <img src="./assets/img/brand/blue.png">
             </a>
-          </li>
+            </div>
+            <div class="col-6 collapse-close">
+            <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#nav-inner-primary" aria-controls="nav-inner-primary" aria-expanded="false" aria-label="Toggle navigation">
+            <span></span>
+            <span></span>
+            </button>
+            </div>
+            </div>
+            </div>
+            <ul class="navbar-nav ml-lg-auto align-items-center ml-md-auto">
+              <li class="nav-item">
+                <a class="nav-link active" href="javascript:;">Home
+                <span class="sr-only">(current)</span>
+                </a>
+                </li>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="javascript:;" id="nav-inner-primary_dropdown_1" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Data</a>
+                <div class="dropdown-menu" aria-labelledby="nav-inner-primary_dropdown_1">
+                <a class="dropdown-item" href="javascript:;">Data Siswa</a>
+                <a class="dropdown-item" href="javascript:;">Data Rombel</a>
+                <a class="dropdown-item" href="javascript:;">Data Alumni</a>
+                </div>
+                </li>
+                <li class="nav-item dropdown">
+                  <a class="nav-link dropdown-toggle" href="javascript:;" id="nav-inner-primary_dropdown_1" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Edukasi</a>
+                  <div class="dropdown-menu" aria-labelledby="nav-inner-primary_dropdown_1">
+                  <a class="dropdown-item" href="javascript:;">Rekayasa Perangkat Lunak</a>
+                  <a class="dropdown-item" href="javascript:;">Tata Boga</a>
+                  <a class="dropdown-item" href="javascript:;">Multimedia</a>
+                  <a class="dropdown-item" href="javascript:;">Otomasisasi Tata Kelola Perkantoran</a>
+                  <a class="dropdown-item" href="javascript:;">Bisnis Daring dan Pemasaran</a>
+                  <a class="dropdown-item" href="javascript:;">Perhotelan</a>
+                  </div>
+                  </li>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="javascript:;" id="nav-inner-primary_dropdown_1" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Test</a>
+                <div class="dropdown-menu" aria-labelledby="nav-inner-primary_dropdown_1">
+                <a class="dropdown-item" href="javascript:;">Test Riasec</a>
+                <a class="dropdown-item" href="javascript:;">Test Peminatan</a>
+                </div>
+                </li>
+            <li class="nav-item">
+            <a class="nav-link" href="javascript:;">Jadwal Bimbingan
+            <span class="sr-only">(current)</span>
+            </a>
+            </li>
+            <li class="nav-item">
+            <a class="nav-link" href="javascript:;">Contact</a>
+            </li>
+            </ul>
+            </div>
+
+          <?php
+          use App\Models\Notification;
+          use Carbon\Carbon;
+
+          $role = Auth::user()->roleSlug;
+          $notif = Notification::where('reciever', $role)->orderBy('send_at', 'desc')->paginate(5);
+          $notifcount = Notification::where('reciever', $role)->count();
+          
+          ?>
           <li class="nav-item dropdown">
             <a class="nav-link" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               <i class="bi bi-envelope"></i>
@@ -39,105 +81,47 @@
             <div class="dropdown-menu dropdown-menu-xl  dropdown-menu-right  py-0 overflow-hidden">
               <!-- Dropdown header -->
               <div class="px-3 py-3">
-                <h6 class="text-sm text-muted m-0">You have <strong class="text-primary">13</strong> notifications.</h6>
-              </div>
+                @if($notifcount > 0)
+                  <h6 class="text-sm text-muted m-0">You have <strong class="text-primary">{{$notifcount}}</strong> notifications.</h6>
+                @else
+                  <h6 class="text-sm text-muted m-0">Nothing.</h6>
+                @endif
+                </div>
               <!-- List group -->
               <div class="list-group list-group-flush">
+                @foreach($notif as $nf)
+                <?php
+                  $today = Carbon::now()->toDateTimeString();
+                  $to = Carbon::createFromFormat('Y-m-d H:s:i', $today);
+                  // $send = $nf->implode('send_at',',');
+                  $from = Carbon::createFromFormat('Y-m-d H:s:i', $nf->send_at);
+            
+                  $diffs = $to->diffInHours($from);
+                  if ($diffs <= 24) {
+                    $diff = $diffs.' hrs';
+                  }else{
+                    $diff = $to->diffInDays($from).' days';
+                  }
+
+                ?>
                 <a href="#!" class="list-group-item list-group-item-action">
-                  <div class="row align-items-center">
+                  <div class="row">
                     <div class="col-auto">
-                      <!-- Avatar -->
-                      <img alt="Image placeholder" src="../assets/argon/img/theme/team-1.jpg" class="avatar rounded-circle">
-                    </div>
-                    <div class="col ml--2">
-                      <div class="d-flex justify-content-between align-items-center">
-                        <div>
-                          <h4 class="mb-0 text-sm">John Snow</h4>
+                        <div class="d-flex justify-content-between align-items-center">
+                          <div>
+                            <h4 class="mb-0 text-sm">{{$nf->sender}}</h4>
+                          </div>
+                          <div class="text-right text-muted">
+                            <small>{{$diff}} ago</small>
+                          </div>
                         </div>
-                        <div class="text-right text-muted">
-                          <small>2 hrs ago</small>
-                        </div>
+                        <p class="text-sm mb-0">{{$nf->notification}}</p>
                       </div>
-                      <p class="text-sm mb-0">Let's meet at Starbucks at 11:30. Wdyt?</p>
-                    </div>
                   </div>
+
                 </a>
-                <a href="#!" class="list-group-item list-group-item-action">
-                  <div class="row align-items-center">
-                    <div class="col-auto">
-                      <!-- Avatar -->
-                      <img alt="Image placeholder" src="../assets/argon/img/theme/team-2.jpg" class="avatar rounded-circle">
-                    </div>
-                    <div class="col ml--2">
-                      <div class="d-flex justify-content-between align-items-center">
-                        <div>
-                          <h4 class="mb-0 text-sm">John Snow</h4>
-                        </div>
-                        <div class="text-right text-muted">
-                          <small>3 hrs ago</small>
-                        </div>
-                      </div>
-                      <p class="text-sm mb-0">A new issue has been reported for Argon.</p>
-                    </div>
-                  </div>
-                </a>
-                <a href="#!" class="list-group-item list-group-item-action">
-                  <div class="row align-items-center">
-                    <div class="col-auto">
-                      <!-- Avatar -->
-                      <img alt="Image placeholder" src="../assets/argon/img/theme/team-3.jpg" class="avatar rounded-circle">
-                    </div>
-                    <div class="col ml--2">
-                      <div class="d-flex justify-content-between align-items-center">
-                        <div>
-                          <h4 class="mb-0 text-sm">John Snow</h4>
-                        </div>
-                        <div class="text-right text-muted">
-                          <small>5 hrs ago</small>
-                        </div>
-                      </div>
-                      <p class="text-sm mb-0">Your posts have been liked a lot.</p>
-                    </div>
-                  </div>
-                </a>
-                <a href="#!" class="list-group-item list-group-item-action">
-                  <div class="row align-items-center">
-                    <div class="col-auto">
-                      <!-- Avatar -->
-                      <img alt="Image placeholder" src="../assets/argon/img/theme/team-4.jpg" class="avatar rounded-circle">
-                    </div>
-                    <div class="col ml--2">
-                      <div class="d-flex justify-content-between align-items-center">
-                        <div>
-                          <h4 class="mb-0 text-sm">John Snow</h4>
-                        </div>
-                        <div class="text-right text-muted">
-                          <small>2 hrs ago</small>
-                        </div>
-                      </div>
-                      <p class="text-sm mb-0">Let's meet at Starbucks at 11:30. Wdyt?</p>
-                    </div>
-                  </div>
-                </a>
-                <a href="#!" class="list-group-item list-group-item-action">
-                  <div class="row align-items-center">
-                    <div class="col-auto">
-                      <!-- Avatar -->
-                      <img alt="Image placeholder" src="../assets/argon/img/theme/team-5.jpg" class="avatar rounded-circle">
-                    </div>
-                    <div class="col ml--2">
-                      <div class="d-flex justify-content-between align-items-center">
-                        <div>
-                          <h4 class="mb-0 text-sm">John Snow</h4>
-                        </div>
-                        <div class="text-right text-muted">
-                          <small>3 hrs ago</small>
-                        </div>
-                      </div>
-                      <p class="text-sm mb-0">A new issue has been reported for Argon.</p>
-                    </div>
-                  </div>
-                </a>
+                @endforeach
+
               </div>
               <!-- View all -->
               <a href="#!" class="dropdown-item text-center text-primary font-weight-bold py-3">View all</a>
