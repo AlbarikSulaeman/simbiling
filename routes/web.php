@@ -28,7 +28,7 @@ Route::post('test/auth/authanticate', [App\Http\Controllers\AuthController::clas
 Route::get('test/auth/login', [App\Http\Controllers\AuthController::class, 'login']);
 
 Route::get('test/auth/logout', [App\Http\Controllers\AuthController::class, 'logout']);
-Route::get('dashboard-user', function () {
+Route::get('home-user', function () {
     return view('simbiling.dashboard.user');
 });
 Route::get('edukasi-rpl', function () {
