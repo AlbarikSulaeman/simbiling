@@ -4,10 +4,10 @@
         <div class="col-lg-12 margin-tb">
             <div class="pull-left">
                 <br>
-                <h2>Data Content</h2>
+                <h2>Data Siswa</h2>
             </div>
             <div class="pull-left">
-                <div><button style="background: red; border: 1px solid red; border-radius: 3px; width: 60px;"><a href="/simbiling/role/add" style="color: white;">add</a></button></div>
+                <div><button style="background: red; border: 1px solid red; border-radius: 3px; width: 60px;"><a href="/simbiling/student/add" style="color: white;">add</a></button></div>
             </div>
             </div>
         </div>
@@ -28,20 +28,24 @@
             $i = 1;
             @endphp
             <th>No</th>
-            <th>Role</th>
-            <th>Description</th>
-            <th>Slug</th>
-            <th>Type</th>
+            <th>Email</th>
+            <th>Name</th>
+            <th>Nis</th>
+            <th>Rombel</th>
+            <th>Rayon</th>
+            <th>Status</th>
             <th>Action</th>
         </tr>
-        @foreach ($role as $roles)
+        @foreach ($student as $students)
         <tr>
             <td><input type="checkbox" class="mr-3">{{ $i++ }}</td>
-            <td>{{ $roles->role }}</td>
-            <td>{{ $roles->description }}</td>
-            <td>{{ $roles->slug }}</td>
-            <td>{{ $roles->type }}</td>
-            <td><a href="/simbiling/role/edit/{{ $roles->_id }}" ><i class="bi bi-pencil-square mr-4"></i></a><a href="/simbiling/role/delete/{{ $roles->_id }}"><i class="bi bi-trash3-fill"></i></a></td>
+            <td>{{ $students->email }}</td>
+            <td>{{ $students->name }}</td>
+            <td>{{ $students->nis }}</td>
+            <td>{{ $students->rombel }}</td>
+            <td>{{ $students->rayon }}</td>
+            <td>{{ $students->status }}</td>
+            <td><a href="/simbiling/student/edit/{{ $students->_id }}" ><i class="bi bi-pencil-square mr-4"></i></a><a href="/simbiling/student/delete/{{ $students->_id }}"><i class="bi bi-trash3-fill"></i></a></td>
         @endforeach
     </table>
     @endsection
