@@ -40,8 +40,7 @@
   <div class="col-12">
     <div class="card p-4 card-dashboard">
       <div class="body-card">
-        <span class="text-dark label-dashboard">Kelas 10</span><br>
-        <span class="text-dark">10</span><br>
+        <span class="text-dark">Siswa yang Bermasalah</span><br>
         <span class="text-dark label-dashboard-bawah">
         <table class="table table-hover" style="text-align: center;">
         <tr>
@@ -49,24 +48,22 @@
             $i = 1;
             @endphp
             <th>No</th>
-            <th>Email</th>
             <th>Name</th>
             <th>Nis</th>
             <th>Rombel</th>
             <th>Rayon</th>
-            <th>Status</th>
+            <th>Masalah</th>
             <th>Action</th>
         </tr>
         @foreach ($student as $students)
         <tr>
             <td><input type="checkbox" class="mr-3">{{ $i++ }}</td>
-            <td>{{ $students->email }}</td>
             <td>{{ $students->name }}</td>
             <td>{{ $students->nis }}</td>
             <td>{{ $students->rombel }}</td>
             <td>{{ $students->rayon }}</td>
-            <td>{{ $students->status }}</td>
-            <td><a href="/simbiling/student/edit/{{ $students->_id }}" ><i class="bi bi-pencil-square mr-4"></i></a><a href="/simbiling/student/delete/{{ $students->_id }}"><i class="bi bi-trash3-fill"></i></a></td>
+            <td>{{ $students->trouble }}</td>
+            <td><a href="#">Jadwalkan!</a></td>
         @endforeach
     </table>
         </span>
