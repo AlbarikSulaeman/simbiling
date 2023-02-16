@@ -42,7 +42,34 @@
       <div class="body-card">
         <span class="text-dark label-dashboard">Kelas 10</span><br>
         <span class="text-dark">10</span><br>
-        <span class="text-dark label-dashboard-bawah">Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente quod delectus, totam maiores ipsa qui tenetur recusandae numquam voluptatem quisquam?</span>
+        <span class="text-dark label-dashboard-bawah">
+        <table class="table table-hover" style="text-align: center;">
+        <tr>
+            @php
+            $i = 1;
+            @endphp
+            <th>No</th>
+            <th>Email</th>
+            <th>Name</th>
+            <th>Nis</th>
+            <th>Rombel</th>
+            <th>Rayon</th>
+            <th>Status</th>
+            <th>Action</th>
+        </tr>
+        @foreach ($student as $students)
+        <tr>
+            <td><input type="checkbox" class="mr-3">{{ $i++ }}</td>
+            <td>{{ $students->email }}</td>
+            <td>{{ $students->name }}</td>
+            <td>{{ $students->nis }}</td>
+            <td>{{ $students->rombel }}</td>
+            <td>{{ $students->rayon }}</td>
+            <td>{{ $students->status }}</td>
+            <td><a href="/simbiling/student/edit/{{ $students->_id }}" ><i class="bi bi-pencil-square mr-4"></i></a><a href="/simbiling/student/delete/{{ $students->_id }}"><i class="bi bi-trash3-fill"></i></a></td>
+        @endforeach
+    </table>
+        </span>
       </div>
     </div>
   </div>

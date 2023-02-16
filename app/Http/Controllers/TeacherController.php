@@ -3,10 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Students;
-use App\Models\Users;
+use App\Models\Teachers;
 
-class StudentController extends Controller
+class TeacherController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,8 +14,8 @@ class StudentController extends Controller
      */
     public function index()
     {
-        $student=Students::get();
-        return view('simbiling.admin.student.show', compact('student'));
+        $teacher=Teachers::get();
+        return view('test.data', compact('teacher'));
     }
 
     /**
@@ -26,7 +25,7 @@ class StudentController extends Controller
      */
     public function create()
     {
-        return view('simbiling.admin.student.add');
+        //
     }
 
     /**
@@ -38,39 +37,19 @@ class StudentController extends Controller
     public function store(Request $request)
     {
         $validateData = $request->validate([
-            'email' => 'required|unique:students',
             'name' => 'required',
-            'nis' => 'required|unique:students',
-            'rombel' => 'required',
-            'rayon' => 'required',
-            'status' => 'required',
-            'trouble' => 'nullable',
-            'haveTrouble'
+            'nis' => 'required',
+            // 'rombel' => 'required',
         ]);
 
-        if ($validateData['trouble'] == null) {
-            $validateData['haveTrouble'] = false;
-        }else{
-            $validateData['haveTrouble'] = true;
-        }
-        $addUser = $request->validate([
-            'email',
-            'name',
-            'password',
-            'role',
-            'roleSlug',
-        ]);
+        $validateData['rombel'] = "RPL XII-5";
 
-        $addUser['email'] = $validateData['email'];
-        $addUser['name'] = $validateData['name'];
-        $addUser['password'] = bcrypt($validateData['nis']);
-        $addUser['role'] = 'Student';
-        $addUser['roleSlug'] = 'student';
+
         
-        Users::create($addUser);
+
         Students::create($validateData);
 
-        return redirect('simbiling/student')->with('success', 'Registrasi berhasil!');
+        return redirect('test.editstudent')->with('success', 'Registrasi berhasil!');
     }
 
     /**
@@ -93,7 +72,7 @@ class StudentController extends Controller
     public function edit($id)
     {
         $student=Students::find($id);
-        return view('simbiling.admin.student.edit', compact('student'));
+        return view('test.editstudent', compact('student'));
     }
 
     /**
@@ -117,7 +96,7 @@ class StudentController extends Controller
         $student->update($validateData);
 
         //return $student;
-        return redirect('simbiling/student')->with('success', 'Edit Berhasil');
+        return redirect('test/student')->with('success', 'Edit Berhasil');
     }
 
     /**
@@ -128,9 +107,12 @@ class StudentController extends Controller
      */
     public function destroy($id)
     {
-        Students::destroy($id);
-        
-        return redirect('simbiling/student')
-        ->with('success','Berhasil Hapus !');
+        //
+    }
+    public function data()
+    {
+        $student = Students::get();
+
+        return view('test/data');
     }
 }
