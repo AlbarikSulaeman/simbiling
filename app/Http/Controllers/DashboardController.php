@@ -13,7 +13,7 @@ class DashboardController extends Controller
  
     public function getDashboard()
     {
-        $student=Students::get();
+        $student=Students::where('haveTrouble', true)->get();
         return view('simbiling.dashboard.dashboard', compact('student'));
     }
 }
