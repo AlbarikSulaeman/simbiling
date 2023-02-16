@@ -78,6 +78,6 @@ Route::group(['namespace' => 'App\Http\Controllers', 'prefix' => 'test', 'middle
 
 Route::get('/contact', function () {
     return view('contact');
-    // return view('simbiling.reference.contact');
-    // return view('simbiling.edukasi.rpl');
 });
+
+
