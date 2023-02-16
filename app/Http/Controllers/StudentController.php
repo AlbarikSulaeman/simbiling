@@ -44,12 +44,15 @@ class StudentController extends Controller
             'rombel' => 'required',
             'rayon' => 'required',
             'status' => 'required',
-            'trouble',
+            'trouble' => 'nullable',
             'haveTrouble'
         ]);
 
-        $validateData['haveTrouble'] = false;
-
+        if ($validateData['trouble'] == null) {
+            $validateData['haveTrouble'] = false;
+        }else{
+            $validateData['haveTrouble'] = true;
+        }
         $addUser = $request->validate([
             'email',
             'name',
