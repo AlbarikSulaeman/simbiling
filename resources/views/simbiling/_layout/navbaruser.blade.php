@@ -1,69 +1,44 @@
 <nav class="navbar navbar-top navbar-expand navbar-dark bg-white border-bottom">
     <div class="container-fluid">
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">  
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav align-items-center  ml-md-auto ">
-        
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#nav-inner-primary" aria-controls="nav-inner-primary" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="nav-inner-primary">
-            <div class="navbar-collapse-header">
-            <div class="row">
-            <div class="col-6 collapse-brand">
-            <a href="./index.html">
-            <img src="./assets/img/brand/blue.png">
-            </a>
-            </div>
-            <div class="col-6 collapse-close">
-            <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#nav-inner-primary" aria-controls="nav-inner-primary" aria-expanded="false" aria-label="Toggle navigation">
-            <span></span>
-            <span></span>
-            </button>
-            </div>
-            </div>
-            </div>
-            <ul class="navbar-nav ml-lg-auto align-items-center ml-md-auto">
-              <li class="nav-item">
+            <li class="nav-item">
                 <a class="nav-link active" href="javascript:;">Home
                 <span class="sr-only">(current)</span>
                 </a>
                 </li>
-              <li class="nav-item dropdown">
+                <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="javascript:;" id="nav-inner-primary_dropdown_1" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Data</a>
                 <div class="dropdown-menu" aria-labelledby="nav-inner-primary_dropdown_1">
                 <a class="dropdown-item" href="javascript:;">Data Siswa</a>
-                <a class="dropdown-item" href="javascript:;">Data Rombel</a>
-                <a class="dropdown-item" href="javascript:;">Data Alumni</a>
+                 <a class="dropdown-item" href="javascript:;">Data Rombel</a>
+                 <a class="dropdown-item" href="javascript:;">Data Alumni</a>
+                </div>
+                </li>
+                 <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="javascript:;" id="nav-inner-primary_dropdown_1" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Edukasi</a>
+                <div class="dropdown-menu" aria-labelledby="nav-inner-primary_dropdown_1">
+                <a class="dropdown-item" href="javascript:;">Rekayasa Perangkat Lunak</a>
+                 <a class="dropdown-item" href="javascript:;">Tata Boga</a>
+                 <a class="dropdown-item" href="javascript:;">Multimedia</a>
+                 <a class="dropdown-item" href="javascript:;">Otomasisasi Tata Kelola Perkantoran</a>
+                 <a class="dropdown-item" href="javascript:;">Bisnis Daring dan Pemasaran</a>
+                 <a class="dropdown-item" href="javascript:;">Perhotelan</a>
                 </div>
                 </li>
                 <li class="nav-item dropdown">
-                  <a class="nav-link dropdown-toggle" href="javascript:;" id="nav-inner-primary_dropdown_1" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Edukasi</a>
-                  <div class="dropdown-menu" aria-labelledby="nav-inner-primary_dropdown_1">
-                  <a class="dropdown-item" href="javascript:;">Rekayasa Perangkat Lunak</a>
-                  <a class="dropdown-item" href="javascript:;">Tata Boga</a>
-                  <a class="dropdown-item" href="javascript:;">Multimedia</a>
-                  <a class="dropdown-item" href="javascript:;">Otomasisasi Tata Kelola Perkantoran</a>
-                  <a class="dropdown-item" href="javascript:;">Bisnis Daring dan Pemasaran</a>
-                  <a class="dropdown-item" href="javascript:;">Perhotelan</a>
-                  </div>
-                  </li>
-              <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="javascript:;" id="nav-inner-primary_dropdown_1" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Test</a>
-                <div class="dropdown-menu" aria-labelledby="nav-inner-primary_dropdown_1">
-                <a class="dropdown-item" href="javascript:;">Test Riasec</a>
-                <a class="dropdown-item" href="javascript:;">Test Peminatan</a>
-                </div>
+                    <a class="nav-link dropdown-toggle" href="javascript:;" id="nav-inner-primary_dropdown_1" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Test</a>
+                    <div class="dropdown-menu" aria-labelledby="nav-inner-primary_dropdown_1">
+                    <a class="dropdown-item" href="javascript:;">Test Riasec</a>
+                     <a class="dropdown-item" href="javascript:;">Test Peminatan</a>
+                    </div>
+                    </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="javascript:;">Jadwal Bimbingan</a>
+                    </li>
+                <li class="nav-item">
+                <a class="nav-link" href="javascript:;">Contact</a>
                 </li>
-            <li class="nav-item">
-            <a class="nav-link" href="javascript:;">Jadwal Bimbingan
-            <span class="sr-only">(current)</span>
-            </a>
-            </li>
-            <li class="nav-item">
-            <a class="nav-link" href="javascript:;">Contact</a>
-            </li>
-            </ul>
-            </div>
 
           <?php
           use App\Models\Notification;
@@ -72,7 +47,7 @@
           $role = Auth::user()->roleSlug;
           $notif = Notification::where('reciever', $role)->orderBy('send_at', 'desc')->paginate(5);
           $notifcount = Notification::where('reciever', $role)->count();
-          
+
           ?>
           <li class="nav-item dropdown">
             <a class="nav-link" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -95,7 +70,7 @@
                   $to = Carbon::createFromFormat('Y-m-d H:s:i', $today);
                   // $send = $nf->implode('send_at',',');
                   $from = Carbon::createFromFormat('Y-m-d H:s:i', $nf->send_at);
-            
+
                   $diffs = $to->diffInHours($from);
                   if ($diffs <= 24) {
                     $diff = $diffs.' hrs';
@@ -105,20 +80,20 @@
 
                 ?>
                 <a href="#!" class="list-group-item list-group-item-action">
-                  <div class="row">
-                    <div class="col-auto">
-                        <div class="d-flex justify-content-between align-items-center">
-                          <div>
-                            <h4 class="mb-0 text-sm">{{$nf->sender}}</h4>
-                          </div>
-                          <div class="text-right text-muted">
-                            <small>{{$diff}} ago</small>
-                          </div>
-                        </div>
-                        <p class="text-sm mb-0">{{$nf->notification}}</p>
-                      </div>
-                  </div>
+                  <div class="row align-items-center">
 
+                    <div class="col-auto">
+                      <div class="d-flex justify-content-between align-items-center">
+                        <div>
+                          <h4 class="mb-0 text-sm">{{$nf->sender}}</h4>
+                        </div>
+                        <div class="text-right text-muted">
+                          <small>{{$diff}} ago</small>
+                        </div>
+                      </div>
+                      <p class="text-sm mb-0">{{$nf->notification}}</p>
+                    </div>
+                  </div>
                 </a>
                 @endforeach
 
@@ -127,13 +102,13 @@
               <a href="#!" class="dropdown-item text-center text-primary font-weight-bold py-3">View all</a>
             </div>
           </li>
-          
+
         </ul>
         <ul class="navbar-nav align-items-center  ml-auto ml-md-0 ">
           <li class="nav-item dropdown">
             <a class="nav-link pr-0" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               <div class="media align-items-center">
-                
+
                 <div class="media-body  ml-2  d-none d-lg-block">
                   <span class="mb-0 text-sm  font-weight-bold">{{Auth::user()->name ?? 'Guest'}}</span>
                 </div>

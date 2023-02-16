@@ -35,7 +35,7 @@
     </div>
   </nav> --}}
   <!-- Main content -->
-  <div class="main-content" id="pane  l">
+  <div class="main-content" id="panel">
     <!-- Topnav -->
     @include('simbiling._layout.navbaruser')
     <!-- Header -->

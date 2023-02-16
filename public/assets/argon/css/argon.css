@@ -262,6 +262,11 @@ caption {
     color: #8898aa;
 }
 
+li.nav-item {
+    color: #4c6793;
+    font-weight: bold;
+}
+
 th {
     text-align: inherit;
 }
