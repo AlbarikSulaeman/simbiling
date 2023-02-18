@@ -24,10 +24,15 @@
                 <br>
                 <h1>Login</h1>
                 <h4>Username</h4>
-                <input name="email" type="text" class="input">
+                <input name="email" type="text" class="input" value="{{ (old('email')) }}">
                 @if ($errors->has('email'))
                     <span class="invalid-feedback">
                         <strong>{{ $errors->first('email') }}</strong>
+                    </span>
+                @endif
+                @if ($message = Session::get('userError'))
+                    <span class="invalid-feedback">
+                        <strong>{{ $message }}</strong>
                     </span>
                 @endif
                 <br>
@@ -36,6 +41,11 @@
                 @if ($errors->has('password'))
                     <span class="invalid-feedback">
                         <strong>{{ $errors->first('password') }}</strong>
+                    </span>
+                @endif
+                @if ($message = Session::get('error'))
+                    <span class="invalid-feedback">
+                        <strong>{{ $message }}</strong>
                     </span>
                 @endif
                 <p>forgot password</p>

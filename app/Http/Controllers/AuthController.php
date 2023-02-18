@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
+use App\Models\Students;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Helpers\Helper;
@@ -111,9 +112,18 @@ class AuthController extends Controller
     {
 
         $login = $request->validate([
-            'email' => 'required',
+            'email' => 'required|email',
             'password' => 'required'
         ]);
+
+        $email = Students::where('email', $login['email'])->first();
+
+        // dd($email->status);
+        if (!$email) {
+            return back()->with('userError', 'Anda tidak terdaftar sebagai siswa wikrama')->withInput($request->only('email'));
+        }elseif ($email->status != 'aktif') {
+            return back()->with('userError', 'Anda sudah bukan siswa wikrama')->withInput($request->only('email'));
+        }
 
         if (Auth::attempt($login)) {
             $request->session()->regenerate();
@@ -126,11 +136,11 @@ class AuthController extends Controller
             }elseif (Auth::user()->roleSlug == 'admin') {
                 return redirect("/simbiling/dashboard")->with('success', 'login berhasil!');
             }else{
-                return redirect("/login")->with('success', 'Something Wrong');
+                return redirect("/login")->with('error', 'Something Wrong');
             }
-            // return redirect("/simbiling/dashboard")->with('success', 'login berhasil!');
+            // return redirect("/simbiling/dashboard")->with('error', 'login berhasil!');
         }
-        return back()->with('success', 'Login gagal! Silahkan coba lagi');
+        return back()->with('error', 'Username/Password Salah')->withInput($request->only('email'));
     }
 
     public function logout(Request $request)
