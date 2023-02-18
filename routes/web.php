@@ -35,6 +35,10 @@ Route::get('edukasi-rpl', function () {
     return view('simbiling.edukasi.rpl');
 });
 
+Route::get('jadwal-bimbingan', function () {
+    return view('simbiling.jadwal-bimbingan.form');
+});
+
 Route::get('/login', 'App\Http\Controllers\AuthController' . '@login');
 Route::post('/login', 'App\Http\Controllers\AuthController' . '@authanticate');
 
@@ -79,5 +83,7 @@ Route::group(['namespace' => 'App\Http\Controllers', 'prefix' => 'test', 'middle
 Route::get('/contact', function () {
     return view('contact');
 });
+
+
 
 
