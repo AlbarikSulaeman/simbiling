@@ -25172,7 +25172,7 @@ input.datetimepicker[data-color="yellow"]
     font-family: "arial";
     font-style: normal;
     font-weight: 400;
-    font-size: 17px;    
+    font-size: 17px;
     line-height: 21px;
     color: black;
 }
@@ -25191,8 +25191,7 @@ input.datetimepicker[data-color="yellow"]
   }
 /* user dash */
 
-/* .header.pb-6 {
-    background-color: #4C6793;
-    margin-top: -7px;
-    padding-top: 90px;
-}    */
+img.navbar-brand-img {
+    width: 50px;
+    margin-left: 15px;
+}
