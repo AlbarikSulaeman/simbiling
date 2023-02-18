@@ -116,13 +116,19 @@ class AuthController extends Controller
             'password' => 'required'
         ]);
 
+        $checkRole = User::where('email', $login['email'])->first();
         $email = Students::where('email', $login['email'])->first();
 
         // dd($email->status);
-        if (!$email) {
-            return back()->with('userError', 'Anda tidak terdaftar sebagai siswa wikrama')->withInput($request->only('email'));
-        }elseif ($email->status != 'aktif') {
-            return back()->with('userError', 'Anda sudah bukan siswa wikrama')->withInput($request->only('email'));
+        if ($checkRole != null && $checkRole->roleSlug == 'student') {
+            $email = Students::where('email', $login['email'])->first();
+            if (!$email) {
+                return back()->with('userError', 'Anda tidak terdaftar sebagai siswa wikrama')->withInput($request->only('email'));
+            }elseif ($email->status != 'aktif') {
+                return back()->with('userError', 'Anda sudah bukan siswa wikrama')->withInput($request->only('email'));
+            }
+        }elseif ($checkRole == null) {
+            return back()->with('userError', 'Anda tidak terdaftar sebagai anggota wikrama')->withInput($request->only('email'));
         }
 
         if (Auth::attempt($login)) {
@@ -140,7 +146,7 @@ class AuthController extends Controller
             }
             // return redirect("/simbiling/dashboard")->with('error', 'login berhasil!');
         }
-        return back()->with('error', 'Username/Password Salah')->withInput($request->only('email'));
+        return back()->with('error', 'Password Salah')->withInput($request->only('email'));
     }
 
     public function logout(Request $request)
