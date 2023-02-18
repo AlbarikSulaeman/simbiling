@@ -1,0 +1,18 @@
+/* userdash */
+
+.header.pb-6 {
+    background-color: #4C6793;
+    margin-top: -7px;
+    padding-top: 120px;
+}   
+
+.img-fluid {
+    margin-bottom: 50px;
+    margin-top: -100px;
+    margin-left: 65px;
+}
+
+.text-center {
+    text-align: center !important;
+    margin-bottom: 120px;
+}

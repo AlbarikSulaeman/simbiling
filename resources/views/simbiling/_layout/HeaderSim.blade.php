@@ -27,6 +27,7 @@
 
   <!-- Template Main CSS File -->
   <link href="assets/css/HeaderSim.css" rel="stylesheet">
+  <!-- <link rel="stylesheet" href="assets/css/userstyle.css"> -->
 
   <!-- =======================================================
   * Template Name: Impact - v1.2.0
@@ -34,29 +35,30 @@
   * Author: BootstrapMade.com
   * License: https://bootstrapmade.com/license/
   ======================================================== -->
- 
+
 </head>
 
-  <header id="header" class="header d-flex align-items-center">
-    <div class="container-fluid container-xl d-flex align-items-center justify-content-between">
-      <a href="index.html" class="logo d-flex align-items-center">
-        <!-- Uncomment the line below if you also wish to use an image logo -->
-        <img src="assets/img/logo_wikrama.png" alt="">
-        <h1>Simbiling</h1>
-      </a>
-      <nav id="navbar" class="navbar">
-        <ul>
-          <li><a href="/home">Home</a></li>
-          <li><a href="/contact">Contact</a></li>
-          <button class="login"><a href="/login">Login</a></button>
-        </ul>
-      </nav><!-- .navbar -->
-      <i class="mobile-nav-toggle mobile-nav-show bi bi-list"></i>
-      <i class="mobile-nav-toggle mobile-nav-hide d-none bi bi-x"></i>
-    </div>
-  </header>
-  
-  <!-- <section id="hero" class="hero">
+<header id="header" class="header d-flex align-items-center">
+  <div class="container-fluid container-xl d-flex align-items-center justify-content-between">
+    <a href="index.html" class="logo d-flex align-items-center">
+      <!-- Uncomment the line below if you also wish to use an image logo -->
+      <img src="assets/img/logo_wikrama.png" alt="">
+      <h1>Simbiling</h1>
+    </a>
+    <nav id="navbar" class="navbar">
+      <ul>
+        <li><a href="/home">Home</a></li>
+        <li><a href="/contact">Contact</a></li>
+        <button class="login"><a href="/login">Login</a></button>
+      </ul>
+    </nav><!-- .navbar -->
+    <i class="mobile-nav-toggle mobile-nav-show bi bi-list"></i>
+    <i class="mobile-nav-toggle mobile-nav-hide d-none bi bi-x"></i>
+  </div>
+</header>
+
+<!-- <section id="hero" class="hero">
     @yield('content')
   </section> -->
+
 </html>
