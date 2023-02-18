@@ -1,7 +1,6 @@
 @extends('simbiling._layout.admin')
 @section('content')
 
-
 <br>
 <div class="row">
   <div class="col-4">
