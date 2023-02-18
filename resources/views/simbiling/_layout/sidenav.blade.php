@@ -3,7 +3,7 @@
   <div class="collapse navbar-collapse" id="sidenav-collapse-main">
     <!-- Nav items -->
     <ul class="navbar-nav">
-      <li class="nav-item"> 
+      <li class="nav-item">
         <a class="nav-link active" href="examples/dashboard.html">
           <i class="bi bi-border-all"></i>
           <span class="nav-link-text">Dashboard</span>
@@ -23,19 +23,19 @@
         <div class="collapse" id="navbar-1">
         <ul class="nav nav-sm flex-column">
         <li class="nav-item">
-        <a href="../../pages/examples/pricing.html" class="nav-link">
+        <a href="/simbiling/student" class="nav-link">
         {{-- <span class="sidenav-mini-icon"> P </span> --}}
         <span class="sidenav-normal"> Data Siswa </span>
         </a>
         </li>
         <li class="nav-item">
-        <a href="../../pages/examples/login.html" class="nav-link">
+        <a href="/simbiling/rombel" class="nav-link">
         {{-- <span class="sidenav-mini-icon"> L </span> --}}
         <span class="sidenav-normal"> Data Rombel </span>
         </a>
         </li>
         <li class="nav-item">
-        <a href="../../pages/examples/register.html" class="nav-link">
+        <a href="/simbiling/rayon" class="nav-link">
         {{-- <span class="sidenav-mini-icon"> R </span> --}}
         <span class="sidenav-normal"> Data Rayon </span>
         </a>

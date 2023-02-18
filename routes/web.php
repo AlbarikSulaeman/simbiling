@@ -39,8 +39,7 @@ Route::get('/login', 'App\Http\Controllers\AuthController' . '@login');
 Route::post('/login', 'App\Http\Controllers\AuthController' . '@authanticate');
 
 Route::get('/file-import', [
-    App\Http\Controllers\UserController::class,
-    'importView'
+    App\Http\Controllers\UserController::class,'importView'
 ])->name('import-view');
 Route::post('/import', [
     App\Http\Controllers\UserController::class,
