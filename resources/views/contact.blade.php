@@ -33,9 +33,9 @@
       </a>
       <nav id="navbar" class="navbar">
         <ul>
-          <li><a href="/home">Home</a></li>
+          <li><a href="/">Home</a></li>
           <li><a href="/contact">Contact</a></li>
-          <button class="login"><a href="#login">Login</a></button>
+          <button class="login"><a href="/login">Login</a></button>
         </ul>
       </nav>
       <i class="mobile-nav-toggle mobile-nav-show bi bi-list"></i>
