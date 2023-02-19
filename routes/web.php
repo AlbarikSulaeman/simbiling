@@ -35,13 +35,8 @@ Route::get('edukasi-rpl', function () {
     return view('simbiling.edukasi.rpl');
 });
 
-<<<<<<< HEAD
 Route::get('jadwal-bimbingan', function () {
     return view('simbiling.jadwal-bimbingan.form');
-=======
-Route::get('/student', function () {
-    return view('simbiling.admin.student');
->>>>>>> 7c64376b9051084b5829d44cc3ee41cd1727fb74
 });
 
 Route::get('/login', 'App\Http\Controllers\AuthController' . '@login');
@@ -87,10 +82,3 @@ Route::group(['namespace' => 'App\Http\Controllers', 'prefix' => 'test', 'middle
 Route::get('/contact', function () {
     return view('contact');
 });
-<<<<<<< HEAD
-
-
-
-
-=======
->>>>>>> 7c64376b9051084b5829d44cc3ee41cd1727fb74
