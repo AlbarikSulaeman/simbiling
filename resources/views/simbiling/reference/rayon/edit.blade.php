@@ -32,7 +32,7 @@
                                 <label for="rayon">Rayon</label>
                             </div>
                             <div class="form-floating">
-                                <input type="text" name="description" class="form-control mt-2" id="description" placeholder="description" value="{{$role->description}}">
+                                <input type="text" name="description" class="form-control mt-2" id="description" placeholder="description" value="{{$rayon->description}}">
                                 <label for="description">Description</label>
                             </div>
                             <!-- <div class="form-floating">

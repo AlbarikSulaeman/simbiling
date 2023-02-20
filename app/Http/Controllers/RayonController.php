@@ -41,11 +41,15 @@ class RayonController extends Controller
             // 'area' => 'required',
             'description' => 'required',
             'rayon' => 'required',
+            'slug'
         ]);
-
-        // $areacount = Rayon::where('area', $validateData['area'])->count();
-
-        // $validateData['rayon'] == $validateData['area'].''.$areacount;
+        $slugCount = strlen($validateData['rayon']);
+       
+        $firstSlugCount = $slugCount - 1;
+        $prefix =  substr($validateData['rayon'], $firstSlugCount);
+        $firstSlug = substr($validateData['rayon'], 0, 3);
+        $slug = $firstSlug . ' '. $prefix;
+        $validateData['slug'] = $slug; 
 
         Rayon::create($validateData);
 
@@ -88,13 +92,17 @@ class RayonController extends Controller
             // 'area' => 'required',
             'description' => 'required',
             'rayon' => 'required',
+            'slug'
         ]);
+        $slugCount = strlen($validateData['rayon']);
+       
+        $firstSlugCount = $slugCount - 1;
+        $prefix =  substr($validateData['rayon'], $firstSlugCount);
+        $firstSlug = substr($validateData['rayon'], 0, 3);
+        $slug = $firstSlug . ' '. $prefix;
+        $validateData['slug'] = $slug; 
 
-        // $areacount = Rayon::where('area', $validateData['area'])->count();
-
-        // $validateData['rayon'] == $validateData['area'].''.$areacount;
-        // $rayon=Rayon::find($id);
-
+        $rayon = Rayon::find($id);
         $rayon->update($validateData);
 
         //return $rayon;

@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Students;
+use App\Models\Rayon;
+use App\Models\Rombel;
 use App\Models\Users;
 
 class StudentController extends Controller
@@ -26,7 +28,14 @@ class StudentController extends Controller
      */
     public function create()
     {
-        return view('simbiling.admin.student.add');
+        $rayons = Rayon::orderBy('rayon', 'asc')->get();
+        $rombels = Rombel::orderBy('rombel', 'asc')->get();
+        $status = [
+            'aktif',
+            'lulus',
+            'DO'
+        ];
+        return view('simbiling.admin.student.add', compact('rayons', 'rombels', 'status'));
     }
 
     /**

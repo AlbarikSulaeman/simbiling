@@ -2,6 +2,7 @@
 namespace App\Helpers;
 use Illuminate\Support\Facades\Route;
 use App\Models\ContentFor;
+use App\Models\Rayon;
 
 class Helper {
 
@@ -142,5 +143,11 @@ class Helper {
     {
         $contentFor = ContentFor::orderBy('seq', 'asc')->get();
         return $contentFor->toArray();
+    }
+
+    public static function getRayon()
+    {
+        $rayon = Rayon::orderBy('rayon', 'asc')->get();
+        return $rayon->toArray();
     }
 }
