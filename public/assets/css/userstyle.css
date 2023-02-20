@@ -5,6 +5,7 @@ nav.navbar.navbar-top.navbar-expand.navbar-dark.bg-white.border-bottom {
     position: fixed;
     width: 100%;
     z-index: 1;
+    height: 65px;
 }
 .header.pb-6 {
     background-color: #4C6793;

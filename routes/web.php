@@ -39,6 +39,10 @@ Route::get('jadwal-bimbingan', function () {
     return view('simbiling.jadwal-bimbingan.form');
 });
 
+Route::get('test-riasec', function () {
+    return view('simbiling.test.testriasec');
+});
+
 Route::get('/login', 'App\Http\Controllers\AuthController' . '@login');
 Route::post('/login', 'App\Http\Controllers\AuthController' . '@authanticate');
 

@@ -4,7 +4,7 @@
         <img src="../assets/argon/img/brand/logo_wikrama.png"  class="navbar-brand-img" alt="...">
         <ul class="navbar-nav align-items-center  ml-md-auto ">
             <li class="nav-item">
-                <a class="nav-link" href="#home">Home
+                <a class="nav-link" href="home-user">Home
                 <span class="sr-only">(current)</span>
                 </a>
                 </li>
@@ -30,15 +30,15 @@
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="javascript:;" id="nav-inner-primary_dropdown_1" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Test</a>
                     <div class="dropdown-menu" aria-labelledby="nav-inner-primary_dropdown_1">
-                    <a class="dropdown-item" href="javascript:;">Test Riasec</a>
+                    <a class="dropdown-item" href="test-riasec">Test Riasec</a>
                      <a class="dropdown-item" href="javascript:;">Test Peminatan</a>
                     </div>
                     </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="javascript:;">Jadwal Bimbingan</a>
+                    <a class="nav-link" href="jadwal-bimbingan">Jadwal Bimbingan</a>
                     </li>
                 <li class="nav-item">
-                <a class="nav-link" href="javascript:;">Contact</a>
+                <a class="nav-link" href="/contact">Contact</a>
                 </li>
 
           <?php

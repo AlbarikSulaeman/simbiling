@@ -29,7 +29,7 @@
           ?>
           <li class="nav-item dropdown">
             <a class="nav-link" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              <i class="bi bi-envelope"></i>
+                <i class="bi bi-envelope-fill"></i>
             </a>
             <div class="dropdown-menu dropdown-menu-xl  dropdown-menu-right  py-0 overflow-hidden">
               <!-- Dropdown header -->

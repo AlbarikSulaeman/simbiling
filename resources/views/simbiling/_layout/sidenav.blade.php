@@ -39,8 +39,30 @@
         {{-- <span class="sidenav-mini-icon"> R </span> --}}
         <span class="sidenav-normal"> Data Rayon </span>
         </a>
-        </li>
     </div>
+      </li>
+        <li class="nav-item">
+            <a class="nav-link" href="#navbar-2" data-toggle="collapse" role="button" aria-expanded="false" aria-controls="navbar-2">
+                <i class="bi bi-people-fill"></i>
+              <span class="nav-link-text">Bimbingan</span>
+            </a>
+        <div class="collapse" id="navbar-2">
+          <ul class="nav nav-sm flex-column">
+            <li class="nav-item">
+              <a href="../../pages/examples/pricing.html" class="nav-link">
+                {{-- <span class="sidenav-mini-icon"> P </span> --}}
+                <span class="sidenav-normal"> Bimbingan Karir </span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="../../pages/examples/login.html" class="nav-link">
+                {{-- <span class="sidenav-mini-icon"> L </span> --}}
+                <span class="sidenav-normal"> Bimbingan Konseling </span>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </li>
       <li class="nav-item">
         <a class="nav-link" href="#navbar-3" data-toggle="collapse" role="button" aria-expanded="false" aria-controls="navbar-3">
           <i class="bi bi-mortarboard-fill"></i>

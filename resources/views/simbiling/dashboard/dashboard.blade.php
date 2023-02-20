@@ -39,7 +39,7 @@
   <div class="col-12">
     <div class="card p-4 card-dashboard">
       <div class="body-card">
-        <span class="text-dark">Siswa yang Bermasalah</span><br>
+        <span class="text-dark" style="font-family: 'Poppins';">Siswa yang Bermasalah</span><br><br>
         <span class="text-dark label-dashboard-bawah">
         <table class="table table-hover" style="text-align: center;">
         <tr>

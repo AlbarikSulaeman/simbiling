@@ -16,6 +16,8 @@
 * The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
 
 */
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400&display=swap");
+
 :root {
     --blue: #5e72e4;
     --indigo: #5603ad;
@@ -16482,6 +16484,8 @@ a.btn-icon-only {
     font-size: 0.875rem;
 
     padding: 0.5rem 1rem;
+
+    color: #525f7f;
 }
 .dropdown-menu .dropdown-item > i,
 .dropdown-menu .dropdown-item > svg {
@@ -18491,7 +18495,7 @@ textarea[resize="horizontal"] {
     transition: 0.3s ease;
 
     opacity: 1;
-    color: #4c6793;
+    color: #525f7f;
 }
 
 .g-sidenav-pinned .sidenav {
@@ -25187,11 +25191,11 @@ input.datetimepicker[data-color="yellow"]
 }
 
 .border-left-primary {
-    border-left: 0.25rem solid #4e73df !important;
+    border-left: 0.25rem solid #525f7f !important;
   }
 /* user dash */
 
 img.navbar-brand-img {
-    width: 50px;
+    width: 45px;
     margin-left: 15px;
 }
