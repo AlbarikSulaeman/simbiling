@@ -62,7 +62,7 @@
             <td>{{ $students->rombel }}</td>
             <td>{{ $students->rayon }}</td>
             <td>{{ $students->trouble }}</td>
-            <td><a href="#">Jadwalkan!</a></td>
+            <td><a href="/simbiling/bimbingan/add/{{$students->_id}}">Jadwalkan!</a></td>
         @endforeach
     </table>
         </span>

@@ -23,7 +23,8 @@
           use Carbon\Carbon;
 
           $role = Auth::user()->roleSlug;
-          $notif = Notification::where('reciever', $role)->orderBy('send_at', 'desc')->paginate(5);
+          $idUser = Auth::user()->_id;
+          $notif = Notification::where('reciever', $role)->orWhere('reciever', $idUser)->orderBy('send_at', 'desc')->paginate(5);
           $notifcount = Notification::where('reciever', $role)->count();
 
           ?>

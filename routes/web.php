@@ -67,6 +67,7 @@ Route::group(['namespace' => 'App\Http\Controllers', 'prefix' => 'simbiling', 'm
     \App\Helpers\Helper::makeAdminRoute('contentfor', 'ContentForController');
     \App\Helpers\Helper::makeAdminRoute('role', 'RoleController');
     \App\Helpers\Helper::makeAdminRoute('rayon', 'RayonController');
+    \App\Helpers\Helper::makeRoute('bimbingan', 'BimbinganController');
     \App\Helpers\Helper::makeAdminRoute('notification', 'NotificationController');
     \App\Helpers\Helper::makeAdminRoute('student', 'StudentController');
 });

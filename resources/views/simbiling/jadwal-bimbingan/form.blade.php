@@ -1,30 +1,34 @@
 @extends('simbiling._layout.user')
 @section('content')
-<link rel="stylesheet" href="assets/argon/css/jadwal-bimbingan.css">
+<link rel="stylesheet" href="{{asset('assets/argon/css/jadwal-bimbingan.css')}}">
 <br>
 <div class="container">
     <div class="jadwal">
-        <form action="">
+        <form action="add" method="POST">
+            @csrf
             <h1>Jadwal Bimbingan</h1>
             <hr>
             <div class="form-identitas">
                 <h4>IDENTITAS</h4>
-                <input type="text" placeholder="NIS">
-                <input type="text" placeholder="No Telepon">
-                <input type="text" class="inputnama" placeholder="Nama">
-                <input type="text" class="inputkelas" placeholder="Rombel">
-                <input type="text" class="inputkelas" placeholder="Rayon">
+                <input name="nis" value="{{$siswa->nis ?? ''}}" type="text" placeholder="NIS" disabled>
+                <input name="telp" type="text" placeholder="No Telepon">
+                <input name="name" value="{{$siswa->name ?? ''}}" type="text" class="inputnama" placeholder="Nama" disabled>
+                <input name="rombel" value="{{$siswa->rombel ?? ''}}" type="text" class="inputkelas" placeholder="Rombel" disabled>
+                <input name="rayon" value="{{$siswa->rayon ?? ''}}" type="text" class="inputkelas" placeholder="Rayon" disabled>
             </div>
             <div class="form-jadwalbimbingan">
                 <h4>Jadwal Bimbingan</h4>
-                <input type="text" placeholder="Perihal">
+                <input name="prihal" type="text" placeholder="Perihal">
+                @if ($errors->has('prihal'))
+                    <br>
+                        <strong class="text-danger label-date">{{ $errors->first('prihal') }}</strong>
+                @endif
                 <div class="datetime">
                 <label class="label-date">Date</label>
                 <label class="label-time">Time</label>
                 <br>
-                <input type="date">
-                <input type="time">
-                </div>
+                <input name="date" type="date">
+                <input name="hour" type="time">
             </div>
             <button class="input-jadwal">Submit</button>
         </form>

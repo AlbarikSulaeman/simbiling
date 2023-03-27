@@ -11,6 +11,8 @@ class Helper {
         Route::get($controller, $controller_class .'@index');
         Route::get($controller.'/add', $controller_class .'@create');
         Route::post($controller.'/add', $controller_class .'@store');
+        Route::get($controller.'/add/{id}', $controller_class .'@create');
+        Route::post($controller.'/add/{id}', $controller_class .'@store');
         Route::get($controller.'/edit/{id}', $controller_class .'@edit');
         Route::post($controller.'/edit/{id}', $controller_class .'@update');
         Route::get($controller.'/delete/{id}', $controller_class .'@destroy');

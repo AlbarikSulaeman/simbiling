@@ -69,7 +69,7 @@
                             
                             <div class="form-floating mb-1 ml-2">
                                 <label class="text-dark" for="status">Status</label>
-                                <select name="rayon" id="rayon-option" class="form-control mt-2">
+                                <select name="status" id="rayon-option" class="form-control mt-2">
                                     
                                     @foreach($status as $stat)
                                         <option value="{{$stat}}">{{$stat}}</option>
