@@ -7,7 +7,7 @@ use App\Models\Bimbingan;
 use App\Models\Students;
 use App\Models\Notification;
 use App\Models\User;
-use Auth;
+use Illuminate\Support\Facades\Auth;
 use Carbon\Carbon;
 
 class BimbinganController extends Controller
@@ -47,7 +47,7 @@ class BimbinganController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request, $id)
     {
         $validateData = $request->validate([
             'nis',
