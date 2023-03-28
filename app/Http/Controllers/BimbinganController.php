@@ -60,7 +60,7 @@ class BimbinganController extends Controller
             'input_by'
         ]);
         if (Auth::user()->roleSlug == 'admin') {
-            
+
             $siswa = Students::where('_id', $id)->first();
             $user = User::where('email', $siswa['email'])->first();
             $idUser = $user['_id'];
@@ -78,7 +78,7 @@ class BimbinganController extends Controller
         $validateData['name'] = $siswa['name'];
         $validateData['rombel'] = $siswa['rombel'];
         $validateData['rayon'] = $siswa['rayon'];
-        
+
         $notifikasi = [
             'reciever' => $idUser,
             'sender' => 'sistem',
@@ -93,13 +93,16 @@ class BimbinganController extends Controller
                 'send_at' => Carbon::now()->toDateTimeString(),
                 'notification' => 'Pengajuan Bimbingan',
                 'content' =>  $siswa['name'].' dari '. $siswa['rayon'].' mengajukan bimmbingan pada '.$validateData['date']
-                ]; 
+                ];
             Notification::create($adminNotif);
         }
-        
+
 
         Notification::create($notifikasi);
         Bimbingan::create($validateData);
+        Students::where('email', $siswa['email'])->update([
+            'troubleStatus' => 'dijadwalkan'
+        ]);
 
         return redirect('simbiling/bimbingan')->with('success', 'Registrasi berhasil!');
     }
@@ -143,12 +146,12 @@ class BimbinganController extends Controller
             'slug'
         ]);
         $slugCount = strlen($validateData['bimbingan']);
-       
+
         $firstSlugCount = $slugCount - 1;
         $prefix =  substr($validateData['bimbingan'], $firstSlugCount);
         $firstSlug = substr($validateData['bimbingan'], 0, 3);
         $slug = $firstSlug . ' '. $prefix;
-        $validateData['slug'] = $slug; 
+        $validateData['slug'] = $slug;
 
         $bimbingan = Bimbingan::find($id);
         $bimbingan->update($validateData);
@@ -166,7 +169,7 @@ class BimbinganController extends Controller
     public function destroy($id)
     {
         Bimbingan::destroy($id);
-        
+
         return redirect('simbiling/bimbingan')
         ->with('success','Berhasil Hapus !');
     }

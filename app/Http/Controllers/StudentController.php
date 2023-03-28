@@ -54,13 +54,16 @@ class StudentController extends Controller
             'rayon' => 'required',
             'status' => 'required',
             'trouble' => 'nullable',
-            'haveTrouble'
+            'haveTrouble',
+            'troubleStatus'
         ]);
 
         if ($validateData['trouble'] == null) {
             $validateData['haveTrouble'] = false;
+            $validateData['troubleStatus'] = null;
         }else{
             $validateData['haveTrouble'] = true;
+            $validateData['troubleStatus'] = '0';
         }
         $addUser = $request->validate([
             'email',
@@ -75,7 +78,7 @@ class StudentController extends Controller
         $addUser['password'] = bcrypt($validateData['nis']);
         $addUser['role'] = 'Student';
         $addUser['roleSlug'] = 'student';
-        
+
         Users::create($addUser);
         Students::create($validateData);
 
@@ -114,18 +117,26 @@ class StudentController extends Controller
      */
     public function update(Request $request, $id)
     {
+        $studentBfr = Students::where('_id', $id)->first();
         $validateData = $request->validate([
-            'email' => 'required|unique:students,email,'.$request->user_id,
+            'email' => 'required|unique:users,email,'.$studentBfr['email'].',email',
             'name' => 'required',
-            'nis' => 'required|unique:students',
+            'nis' => 'required|unique:students,nis,'.$studentBfr['nis'].',nis',
             'rombel' => 'required',
             'rayon' => 'required',
             'status' => 'required',
-            'trouble',
-            'haveTrouble'
+            'trouble' => 'nullable',
+            'haveTrouble',
+            'troubleStatus'
         ]);
 
-        $validateData['haveTrouble'] = false;
+        if ($validateData['trouble'] == null) {
+            $validateData['haveTrouble'] = false;
+            $validateData['troubleStatus'] = null;
+        }else{
+            $validateData['haveTrouble'] = true;
+            $validateData['troubleStatus'] = '0';
+        }
 
         $addUser = $request->validate([
             'email',
@@ -141,10 +152,12 @@ class StudentController extends Controller
         $addUser['role'] = 'Student';
         $addUser['roleSlug'] = 'student';
         $student=Students::find($id);
-        $addUser = Users::where('email', $addUser['email']);
+        $addUsers = Users::where('email', $addUser['email'])->first();
+
+        // dd($validateData, $addUser);
 
         $student->update($validateData);
-        $addUser->update($addUser);
+        $addUsers->update($addUser);
 
         //return $student;
         return redirect('simbiling/student')->with('success', 'Edit Berhasil');
@@ -159,7 +172,7 @@ class StudentController extends Controller
     public function destroy($id)
     {
         Students::destroy($id);
-        
+
         return redirect('simbiling/student')
         ->with('success','Berhasil Hapus !');
     }

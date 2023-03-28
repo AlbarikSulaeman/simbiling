@@ -4,7 +4,7 @@
 <br>
 <div class="container">
     <div class="jadwal">
-        <form action="add" method="POST">
+        <form action="{{$siswa->id}}" method="POST">
             @csrf
             <h1>Jadwal Bimbingan</h1>
             <hr>

@@ -11,6 +11,6 @@ class Students extends Eloquent {
     protected $guarded = ['id','_id'];
     protected $primaryKey = '_id';
     protected $dates = ['deleted_at','created_at', 'updated_at', 'datetime' ];
-    
+
 
 }

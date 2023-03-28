@@ -10,10 +10,10 @@ use App\Models\Users;
 
 class DashboardController extends Controller
 {
- 
+
     public function getDashboard()
     {
-        $student=Students::where('haveTrouble', true)->get();
+        $student=Students::where('haveTrouble', true)->where('troubleStatus', '0')->get();
         return view('simbiling.dashboard.dashboard', compact('student'));
     }
 }
