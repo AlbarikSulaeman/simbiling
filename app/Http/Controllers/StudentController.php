@@ -141,7 +141,7 @@ class StudentController extends Controller
         $addUser['role'] = 'Student';
         $addUser['roleSlug'] = 'student';
         $student=Students::find($id);
-        $addUser = User::where('email', $addUser['email']);
+        $addUser = Users::where('email', $addUser['email']);
 
         $student->update($validateData);
         $addUser->update($addUser);

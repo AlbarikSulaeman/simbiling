@@ -93,7 +93,7 @@ class RombelController extends Controller
         // $areacount = Rombel::where('area', $validateData['area'])->count();
 
         // $validateData['rombel'] == $validateData['area'].''.$areacount;
-        // $rombel=Rombel::find($id);
+        $rombel=Rombel::find($id);
 
         $rombel->update($validateData);
 
