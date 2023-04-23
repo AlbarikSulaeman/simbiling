@@ -33,7 +33,7 @@
             <td>{{ $contentfors->name }}</td>
             <td>{{ $contentfors->description }}</td>
             <td>{{ $contentfors->seq }}</td>
-            <td><a href="/simbiling/contenfor/edit/{{ $contentfors->_id }}" ><i class="bi bi-pencil-square mr-4"></i></a><a href="/simbiling/contentfor/delete/{{ $contentfors->_id }}"><i class="bi bi-trash3-fill"></i></a></td>
+            <td><a href="/simbiling/contentfor/edit/{{ $contentfors->_id }}" ><i class="bi bi-pencil-square mr-4"></i></a><a href="/simbiling/contentfor/delete/{{ $contentfors->_id }}"><i class="bi bi-trash3-fill"></i></a></td>
         </tr>
         @endforeach
     </table>

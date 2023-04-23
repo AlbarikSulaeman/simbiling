@@ -13,7 +13,17 @@ class DashboardController extends Controller
 
     public function getDashboard()
     {
+        $jmlSiswa = Students::where('status', 'aktif')->count();
+        $jmlSiswa10 = Students::where('status', 'aktif')->where('class', 'X')->count();
+        $jmlSiswa11 = Students::where('status', 'aktif')->where('class', 'XI')->count();
+        $jmlSiswa12 = Students::where('status', 'aktif')->where('class', 'XII')->count();
+        $siswa = [
+            'X' => $jmlSiswa10,
+            'XI' => $jmlSiswa11,
+            'XII' => $jmlSiswa12,
+            'total' => $jmlSiswa,
+        ];
         $student=Students::where('haveTrouble', true)->where('troubleStatus', '0')->get();
-        return view('simbiling.dashboard.dashboard', compact('student'));
+        return view('simbiling.dashboard.dashboard', compact('student', 'siswa'));
     }
 }

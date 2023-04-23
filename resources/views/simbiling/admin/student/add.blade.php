@@ -11,14 +11,13 @@
                     </div>
                 @endif
 
-@if ($errors->any())
-        <div class="alert alert-danger alert-dismissible fade show" role="alert">
-                    @foreach ($errors->all() as $error)
-                        {{ $error }}
-                    @endforeach
-                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                </div>
-@endif
+                @if ($errors->any())
+                    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                        @foreach ($errors->all() as $error)
+                            {{ $error }}<br>
+                        @endforeach
+                    </div>
+                @endif
                 <div class="container">
                     <h5 class="sidebar-heading" ><a href="/simbiling/student"style="color: black; text-decoration: none;"><-kembali</a></h5>
                     <main class="form-register">
@@ -37,6 +36,16 @@
                             <div class="form-floating mb-1 ml-2">
                                 <label class="text-dark" for="nis">Nis</label>
                                 <input type="text" name="nis" class="form-control mt-2" id="nis" placeholder="nis">
+                            </div>
+                            <div class="form-floating mb-1 ml-2">
+                                <label class="text-dark" for="class">Kelas</label>
+                                <select name="class" id="class-option" class="form-control mt-2">
+                                    <option value="" disabled selected>Silahkan Pilih Kelas</option>
+                                    @foreach($class as $cl)
+                                        <option value="{{$cl}}">{{$cl}}</option>
+                                    @endforeach
+
+                                </select>
                             </div>
                             <div class="form-floating mb-1 ml-2">
                                 <label class="text-dark" for="rombel">Rombel</label>

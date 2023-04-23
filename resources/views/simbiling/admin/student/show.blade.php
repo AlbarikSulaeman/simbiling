@@ -21,7 +21,7 @@
         </span>
       </div>
       <br>
-     
+
     <table class="table table-hover" style="text-align: center;">
         <tr>
             @php
@@ -31,6 +31,7 @@
             <th>Email</th>
             <th>Name</th>
             <th>Nis</th>
+            <th>Class</th>
             <th>Rombel</th>
             <th>Rayon</th>
             <th>Status</th>
@@ -42,10 +43,11 @@
             <td>{{ $students->email }}</td>
             <td>{{ $students->name }}</td>
             <td>{{ $students->nis }}</td>
+            <td>{{ $students->class }}</td>
             <td>{{ $students->rombel }}</td>
             <td>{{ $students->rayon }}</td>
             <td>{{ $students->status }}</td>
-            <td><a href="/simbiling/student/edit/{{ $students->_id }}" ><i class="bi bi-pencil-square mr-4"></i></a><a href="/simbiling/student/delete/{{ $students->_id }}"><i class="bi bi-trash3-fill"></i></a></td>
+            <td><a href="/simbiling/student/masalah/{{ $students->_id }}"><i class="bi bi-exclamation-triangle-fill mr-4"></i></a><a href="/simbiling/student/edit/{{ $students->_id }}" ><i class="bi bi-pencil-square mr-4"></i></a><a href="/simbiling/student/delete/{{ $students->_id }}"><i class="bi bi-trash3-fill"></i></a></td>
         @endforeach
     </table>
     @endsection

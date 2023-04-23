@@ -67,6 +67,7 @@ Route::group(['namespace' => 'App\Http\Controllers', 'prefix' => 'simbiling', 'm
     \App\Helpers\Helper::makeAdminRoute('contentfor', 'ContentForController');
     \App\Helpers\Helper::makeAdminRoute('role', 'RoleController');
     \App\Helpers\Helper::makeAdminRoute('rayon', 'RayonController');
+    \App\Helpers\Helper::makeAdminRoute('rombel', 'RombelController');
     \App\Helpers\Helper::makeRoute('bimbingan', 'BimbinganController');
     \App\Helpers\Helper::makeAdminRoute('notification', 'NotificationController');
     \App\Helpers\Helper::makeAdminRoute('student', 'StudentController');
@@ -83,6 +84,8 @@ Route::group(['namespace' => 'App\Http\Controllers', 'prefix' => 'test', 'middle
     // Route::post('auth/edit/{id}', [AuthController::class, 'update']);
     // Route::delete('auth/delete/{id}', [AuthController::class, 'destroy']);
 });
+
+Route::get('get/details/{id}', [App\Http\Controllers\RombelController::class,'getDetails'])->name('getDetails');
 
 Route::get('/contact', function () {
     return view('contact');

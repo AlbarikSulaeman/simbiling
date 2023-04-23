@@ -10,7 +10,7 @@
 </head>
 <header>
     <img src="assets/img/logo_wikrama.png" class="wikrama">
-</header>  
+</header>
 <body>
    <form action="/login" method="POST">
     @csrf
@@ -18,12 +18,12 @@
         <div class="row">
             <div class="col-md-5">
                 <img src="assets/img/login.png" class="logo">
-            
+
             <div class="col-md-7 d-flex justify-content-start">
             <div class="card">
                 <br>
                 <h1>Login</h1>
-                <h4>Username</h4>
+                <h4>Email</h4>
                 <input name="email" type="text" class="input" value="{{ (old('email')) }}">
                 @if ($errors->has('email'))
                     <span class="invalid-feedback">
@@ -58,3 +58,4 @@
    </form>
 </body>
 </html>
+

@@ -25,8 +25,16 @@ class RombelController extends Controller
      */
     public function create()
     {
-        $rombel=Rombel::get();
-        return view('simbiling.reference.rombel.add');
+        $major=[
+            'Rekayasa Perangkat Lunak',
+            'Teknik Komputer dan Jaringan',
+            'Bisnis Daring dan Pemasaran',
+            'Multi Media',
+            'Otomatisasi dan Tata Kelola Perkantoran',
+            'Tata Boga',
+            'Hotel'
+        ];
+        return view('simbiling.reference.rombel.add', compact('major'));
     }
 
     /**
@@ -38,18 +46,45 @@ class RombelController extends Controller
     public function store(Request $request)
     {
         $validateData = $request->validate([
-            // 'area' => 'required',
-            'description' => 'required',
+            'jurusan' => 'required',
             'rombel' => 'required',
         ]);
-
-        // $areacount = Rombel::where('area', $validateData['area'])->count();
-
-        // $validateData['rombel'] == $validateData['area'].''.$areacount;
 
         Rombel::create($validateData);
 
         return redirect('simbiling/rombel')->with('success', 'Registrasi berhasil!');
+    }
+
+    public function getDetails($id = 0)
+    {
+        $rombel = Rombel::where('jurusan', $id)->count() +1;
+
+        if ($id == 'Rekayasa Perangkat Lunak') {
+            $prefix = 'RPL';
+        }
+        elseif ($id == 'Teknik Komputer dan Jaringan') {
+            $prefix = 'TKJ';
+        }
+        elseif ($id == 'Bisnis Daring dan Pemasaran') {
+            $prefix = 'BDP';
+        }
+        elseif ($id == 'Multi Media') {
+            $prefix = 'MMD';
+        }
+        elseif ($id == 'Otomatisasi dan Tata Kelola Perkantoran') {
+            $prefix = 'OTKP';
+        }
+        elseif ($id == 'Tata Boga') {
+            $prefix = 'TBG';
+        }
+        elseif ($id == 'Hotel') {
+            $prefix = 'HTL';
+        }
+        $data = [
+            'rombel' => $prefix.'-'.$rombel,
+        ];
+
+        return response()->json($data); //return respone to add blade
     }
 
     /**
@@ -110,7 +145,7 @@ class RombelController extends Controller
     public function destroy($id)
     {
         Rombel::destroy($id);
-        
+
         return redirect('simbiling/rombel')
         ->with('success','Berhasil Hapus !');
     }

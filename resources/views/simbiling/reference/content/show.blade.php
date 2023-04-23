@@ -21,7 +21,7 @@
         </span>
       </div>
       <br>
-     
+
     <table class="table table-hover" style="text-align: center;">
         <thead>
             <tr>
@@ -41,12 +41,14 @@
                 <td>{{ $contents->title }}</td>
                 <td>{{ $contents->content }}</td>
                 <td>{{ $contents->contentFor }}</td>
-                <td><button type="button" class="" onclick="editData('{{$contents->_id}}')" style="border: none; background-color: #f8f9fe;"><i class="bi bi-pencil-square mr-4"></i></button><a href="/simbiling/content/delete/{{ $contents->_id }}"><i class="bi bi-trash3-fill"></i></a></td>
+                {{-- <td><button type="button" class="" onclick="editData('{{$contents->_id}}')" style="border: none; background-color: #f8f9fe;"><i class="bi bi-pencil-square mr-4"></i></button><a href="/simbiling/content/delete/{{ $contents->_id }}"><i class="bi bi-trash3-fill"></i></a></td> --}}
+                <td><a href="/simbiling/content/edit/{{ $contents->_id }}" ><i class="bi bi-pencil-square mr-4"></i></a><a href="/simbiling/content/delete/{{ $contents->_id }}"><i class="bi bi-trash3-fill"></i></a></td>
+
             </tr>
-            
+
             @endforeach
         </tbody>
-        
+
     </table>
 
     {{-- MODAL --}}
@@ -95,7 +97,7 @@
         <script>
             function editData(id) {
                 let urlFirst = '{{url("/simbiling/content/edit/+id+")}}'
-                    
+
                 $.ajax({
                     type: 'get',
                     url: urlFirst.replace('+id+',id),

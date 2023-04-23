@@ -39,6 +39,10 @@
                                 <label for="nis">Nis</label>
                             </div>
                             <div class="form-floating">
+                                <input type="text" name="class" class="form-control mt-2" id="class" placeholder="class" value="{{$student->class}}">
+                                <label for="class">Nis</label>
+                            </div>
+                            <div class="form-floating">
                                 <input type="text" name="rombel" class="form-control mt-2" id="rombel" placeholder="rombel" value="{{$student->rombel}}">
                                 <label for="rombel">Rombel</label>
                             </div>

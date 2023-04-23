@@ -8,7 +8,7 @@
       <div class="body-card">
         <span class="text-dark label-dashboard">Kelas 10</span><br>
         <div class="mini-label dateLocal"><?= date("d F Y"); ?></div>
-        <span class="text-dark">10</span><br>
+        <span class="text-dark">{{ $siswa['X'] ?? '0' }}</span><br>
         <span class="text-dark label-dashboard-bawah">Siswa</span>
       </div>
       <!-- <div class="col-auto adjust-chart">
@@ -21,7 +21,7 @@
       <div class="body-card">
         <span class="text-dark label-dashboard">Kelas 11</span><br>
         <div class="mini-label dateLocal"><?= date("d F Y"); ?></div>
-        <span class="text-dark">7</span><br>
+        <span class="text-dark">{{ $siswa['XI'] ?? '0' }}</span><br>
         <span class="text-dark label-dashboard-bawah">Siswa</span>
       </div>
     </div>
@@ -31,7 +31,7 @@
       <div class="body-card">
         <span class="text-dark label-dashboard">Kelas 12</span><br>
         <div class="mini-label dateLocal"><?= date("d F Y"); ?></div>
-        <span class="text-dark">27</span><br>
+        <span class="text-dark">{{ $siswa['XII'] ?? '0' }}</span><br>
         <span class="text-dark label-dashboard-bawah">Siswa</span>
       </div>
     </div>

@@ -35,7 +35,13 @@ class StudentController extends Controller
             'lulus',
             'DO'
         ];
-        return view('simbiling.admin.student.add', compact('rayons', 'rombels', 'status'));
+        $class = [
+            'X',
+            'XI',
+            'XII',
+            'Other'
+        ];
+        return view('simbiling.admin.student.add', compact('rayons', 'rombels', 'status', 'class'));
     }
 
     /**
@@ -50,8 +56,9 @@ class StudentController extends Controller
             'email' => 'required|unique:students',
             'name' => 'required',
             'nis' => 'required|unique:students',
-            'rombel' => 'required',
-            'rayon' => 'required',
+            'rombel' => 'required_if:status,aktif',
+            'class' => 'required_if:status,aktif',
+            'rayon' => 'required_if:status,aktif',
             'status' => 'required',
             'trouble' => 'nullable',
             'haveTrouble',
@@ -122,8 +129,9 @@ class StudentController extends Controller
             'email' => 'required|unique:users,email,'.$studentBfr['email'].',email',
             'name' => 'required',
             'nis' => 'required|unique:students,nis,'.$studentBfr['nis'].',nis',
-            'rombel' => 'required',
-            'rayon' => 'required',
+            'rombel' => 'required_if:status,aktif',
+            'rayon' => 'required_if:status,aktif',
+            'class' => 'required_if:status,aktif',
             'status' => 'required',
             'trouble' => 'nullable',
             'haveTrouble',
