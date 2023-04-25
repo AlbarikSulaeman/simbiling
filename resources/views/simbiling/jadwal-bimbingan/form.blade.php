@@ -1,10 +1,11 @@
 @extends('simbiling._layout.user')
 @section('content')
+
 <link rel="stylesheet" href="{{asset('assets/argon/css/jadwal-bimbingan.css')}}">
 <br>
 <div class="container">
     <div class="jadwal">
-        <form action="{{$siswa->id}}" method="POST">
+        <form action="add/{{$siswa->id}}" method="POST">
             @csrf
             <h1>Jadwal Bimbingan</h1>
             <hr>
@@ -25,12 +26,17 @@
                 @endif
                 <div class="datetime">
                 <label class="label-date">Date</label>
-                <label class="label-time">Time</label>
+                {{-- <label class="label-time">Time</label> --}}
                 <br>
-                <input name="date" type="date">
-                <input name="hour" type="time">
+                <input name="date" type="date" id="date">
+                @if ($errors->has('date'))
+                    <br>
+                        <strong class="text-danger label-date">{{ $errors->first('date') }}</strong>
+                @endif
+                {{-- <input name="hour" type="time"> --}}
+                <button class="input-jadwal">Submit</button>
             </div>
-            <button class="input-jadwal">Submit</button>
+
         </form>
     </div>
 </div>

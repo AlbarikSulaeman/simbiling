@@ -1,7 +1,7 @@
 <nav class="navbar navbar-top navbar-expand navbar-dark bg-white border-bottom">
     <div class="container-fluid">
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <img src="../assets/argon/img/brand/logo_wikrama.png"  class="navbar-brand-img" alt="...">
+        <img src="{{asset('assets/argon/img/brand/logo_wikrama.png')}}"   class="navbar-brand-img" alt="...">
         <ul class="navbar-nav align-items-center  ml-md-auto ">
             <li class="nav-item">
                 <a class="nav-link" href="home-user">Home
@@ -48,7 +48,7 @@
           $role = Auth::user()->roleSlug;
           $idUser = Auth::user()->_id;
           $notif = Notification::where('reciever', $role)->orWhere('reciever', $idUser)->orderBy('send_at', 'desc')->paginate(5);
-          $notifcount = Notification::where('reciever', $role)->count();
+          $notifcount = Notification::where('reciever', $role)->orWhere('reciever', $idUser)->count();
 
           ?>
           <li class="nav-item dropdown">
@@ -61,7 +61,7 @@
                 @if($notifcount > 0)
                   <h6 class="text-sm text-muted m-0">You have <strong class="text-primary">{{$notifcount}}</strong> notifications.</h6>
                 @else
-                  <h6 class="text-sm text-muted m-0">Nothing.</h6>
+                  <h6 class="text-sm text-muted m-0">Nothing. </h6>
                 @endif
                 </div>
               <!-- List group -->

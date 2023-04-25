@@ -25,7 +25,7 @@
           $role = Auth::user()->roleSlug;
           $idUser = Auth::user()->_id;
           $notif = Notification::where('reciever', $role)->orWhere('reciever', $idUser)->orderBy('send_at', 'desc')->paginate(5);
-          $notifcount = Notification::where('reciever', $role)->count();
+          $notifcount = Notification::where('reciever', $role)->orWhere('reciever', $idUser)->count();
 
           ?>
           <li class="nav-item dropdown">

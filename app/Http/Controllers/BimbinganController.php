@@ -56,7 +56,7 @@ class BimbinganController extends Controller
             'rombel',
             'rayon',
             'prihal' => 'required',
-            'date' => 'required',
+            'date' => 'required|date|after_or_equal:today',
             'input_by'
         ]);
         if (Auth::user()->roleSlug == 'admin') {

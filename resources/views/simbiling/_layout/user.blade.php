@@ -20,7 +20,7 @@
  @include('simbiling._layout.headeruser')
  @yield('css')
 </head>
-
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
 <body>
   <!-- Sidenav -->
   {{-- <nav class="sidenav navbar navbar-vertical  fixed-left  navbar-expand-xs navbar-light bg-white" id="sidenav-main">
