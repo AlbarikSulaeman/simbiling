@@ -23,7 +23,7 @@ class DashboardController extends Controller
             'XII' => $jmlSiswa12,
             'total' => $jmlSiswa,
         ];
-        $student=Students::where('haveTrouble', true)->where('troubleStatus', '0')->get();
-        return view('simbiling.dashboard.dashboard', compact('student', 'siswa'));
+        $student=Students::where('haveTrouble', true)->where('troubleStatus', '0')->paginate(5);
+        return view('simbiling.dashboard.dashboard', compact('student', 'siswa'))->with('i', (request()->input('page', 1) - 1) * 5);;
     }
 }
