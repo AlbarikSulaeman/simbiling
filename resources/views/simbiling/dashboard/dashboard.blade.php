@@ -64,6 +64,8 @@
             <td>{{ $students->trouble }}</td>
             <td><a href="/simbiling/bimbingan/add/{{$students->_id}}">Jadwalkan!</a></td>
         @endforeach
+
+        {!! $student->links() !!}
     </table>
         </span>
       </div>

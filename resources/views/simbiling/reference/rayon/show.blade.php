@@ -40,5 +40,6 @@
             <td><a href="/simbiling/rayon/edit/{{ $rayons->_id }}" ><i class="bi bi-pencil-square mr-4"></i></a><a href="/simbiling/rayon/delete/{{ $rayons->_id }}"><i class="bi bi-trash3-fill"></i></a></td>
         </tr>
         @endforeach
+        {!! $rayon->links() !!}
     </table>
     @endsection

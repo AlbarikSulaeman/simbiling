@@ -14,8 +14,9 @@ class RayonController extends Controller
      */
     public function index()
     {
-        $rayon=Rayon::get();
-        return view('simbiling.reference.rayon.show', compact('rayon'));
+        $rayon=Rayon::latest()->paginate(5);
+        return view('simbiling.reference.rayon.show', compact('rayon'))
+        ->with('i', (request()->input('page', 1) - 1) * 5);
     }
 
     /**

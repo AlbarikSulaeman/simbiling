@@ -26,5 +26,7 @@
             <td><a href="/test/student/edit/{{ $students->_id }}">edit</a></td>
             <td><a href="/test/student/delete/{{ $students->_id }}">hapus</a></td>
         </tr>
+    {!! $student->links() !!}
+
         @endforeach
     </table>

@@ -17,8 +17,9 @@ class StudentController extends Controller
      */
     public function index()
     {
-        $student=Students::get();
-        return view('simbiling.admin.student.show', compact('student'));
+        $student=Students::latest()->paginate(5);
+        return view('simbiling.admin.student.show', compact('student'))
+        ->with('i', (request()->input('page', 1) - 1) * 5);
     }
 
     /**

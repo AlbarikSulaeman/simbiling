@@ -40,5 +40,7 @@
             <td><a href="/simbiling/rombel/edit/{{ $rombels->_id }}" ><i class="bi bi-pencil-square mr-4"></i></a><a href="/simbiling/rombel/delete/{{ $rombels->_id }}"><i class="bi bi-trash3-fill"></i></a></td>
         </tr>
         @endforeach
+
+        {!! $rombel->links() !!}
     </table>
     @endsection

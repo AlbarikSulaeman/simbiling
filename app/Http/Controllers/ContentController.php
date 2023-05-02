@@ -14,8 +14,9 @@ class ContentController extends Controller
      */
     public function index()
     {
-        $content=Content::get();
-        return view('simbiling.reference.content.show', compact('content'));
+        $content=Content::latest()->paginate(5);
+        return view('simbiling.reference.content.show', compact('content'))
+        ->with('i', (request()->input('page', 1) - 1) * 5);
     }
 
     /**

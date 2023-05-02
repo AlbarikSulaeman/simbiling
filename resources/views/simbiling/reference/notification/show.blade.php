@@ -36,5 +36,6 @@
             <td><a href="/simbiling/notification/edit/{{ $notifications->_id }}" ><i class="bi bi-pencil-square mr-4"></i></a><a href="/simbiling/notification/delete/{{ $notifications->_id }}"><i class="bi bi-trash3-fill"></i></a></td>
         </tr>
         @endforeach
+        {!! $notification->links() !!}
     </table>
     @endsection

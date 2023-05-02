@@ -48,6 +48,10 @@
             <td>{{ $students->rayon }}</td>
             <td>{{ $students->status }}</td>
             <td><a href="/simbiling/student/masalah/{{ $students->_id }}"><i class="bi bi-exclamation-triangle-fill mr-4"></i></a><a href="/simbiling/student/edit/{{ $students->_id }}" ><i class="bi bi-pencil-square mr-4"></i></a><a href="/simbiling/student/delete/{{ $students->_id }}"><i class="bi bi-trash3-fill"></i></a></td>
+       
+
         @endforeach
+        {!! $student->links() !!}
+
     </table>
     @endsection

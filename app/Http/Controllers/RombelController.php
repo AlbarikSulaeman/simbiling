@@ -14,8 +14,9 @@ class RombelController extends Controller
      */
     public function index()
     {
-        $rombel=Rombel::get();
-        return view('simbiling.reference.rombel.show', compact('rombel'));
+        $rombel=Rombel::latest()->paginate(5);
+        return view('simbiling.reference.rombel.show', compact('rombel'))
+        ->with('i', (request()->input('page', 1) - 1) * 5);
     }
 
     /**

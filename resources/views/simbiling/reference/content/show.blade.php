@@ -47,6 +47,8 @@
             </tr>
 
             @endforeach
+
+            {!! $content->links() !!}
         </tbody>
 
     </table>

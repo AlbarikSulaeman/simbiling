@@ -17,8 +17,9 @@ class NotificationController extends Controller
      */
     public function index()
     {
-        $notification=Notification::get();
-        return view('simbiling.reference.notification.show', compact('notification'));
+        $notification=Notification::latest()->paginate(5);
+        return view('simbiling.reference.notification.show', compact('notification'))
+        ->with('i', (request()->input('page', 1) - 1) * 5);
     }
 
     /**
