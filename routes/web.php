@@ -35,9 +35,9 @@ Route::get('edukasi-rpl', function () {
     return view('simbiling.edukasi.rpl');
 });
 
-Route::get('jadwal-bimbingan', function () {
-    return view('simbiling.jadwal-bimbingan.form');
-});
+// Route::get('jadwal-bimbingan', function () {
+//     return view('simbiling.jadwal-bimbingan.form');
+// });
 
 Route::get('test-riasec', function () {
     return view('simbiling.test.testriasec');

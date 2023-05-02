@@ -4,7 +4,7 @@
         <img src="{{asset('assets/argon/img/brand/logo_wikrama.png')}}"   class="navbar-brand-img" alt="...">
         <ul class="navbar-nav align-items-center  ml-md-auto ">
             <li class="nav-item">
-                <a class="nav-link" href="home-user">Home
+                <a class="nav-link" href="{{url("home-user")}}">Home
                 <span class="sr-only">(current)</span>
                 </a>
                 </li>
@@ -35,7 +35,7 @@
                     </div>
                     </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="jadwal-bimbingan">Jadwal Bimbingan</a>
+                    <a class="nav-link" href="{{URL("simbiling/bimbingan/add")}}">Jadwal Bimbingan</a>
                     </li>
                 <li class="nav-item">
                 <a class="nav-link" href="/contact">Contact</a>
