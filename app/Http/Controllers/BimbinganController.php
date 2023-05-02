@@ -59,6 +59,8 @@ class BimbinganController extends Controller
             'date' => 'required|date|after_or_equal:today',
             'input_by'
         ]);
+        $checkdate = $validateData['date'];
+        $countdate = Bimbingan::where('date', $checkdate)->count();
         if (Auth::user()->roleSlug == 'admin') {
 
             $siswa = Students::where('_id', $id)->first();
@@ -72,7 +74,9 @@ class BimbinganController extends Controller
         }else{
             $siswa = null;
         }
-
+        if ($countdate >= 5) {
+            return redirect()->back()->with('message', 'Jadwa pada tanggal '.$validateData['date'].' telah penuh, silahkan pilih tanggal lain')->withInput();
+        }
         $validateData['input_by'] = Auth::user()->name;
         $validateData['nis'] = $siswa['nis'];
         $validateData['name'] = $siswa['name'];

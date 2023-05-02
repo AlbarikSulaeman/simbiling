@@ -19,6 +19,7 @@
             </div>
             <div class="form-jadwalbimbingan">
                 <h4>Jadwal Bimbingan</h4>
+
                 <input name="prihal" type="text" placeholder="Perihal">
                 @if ($errors->has('prihal'))
                     <br>
@@ -29,6 +30,12 @@
                 {{-- <label class="label-time">Time</label> --}}
                 <br>
                 <input name="date" type="date" id="date">
+                @if (\Session::has('message'))
+                <br>
+                    <strong class="text-danger label-date">
+                        {!! \Session::get('message') !!}
+                    </strong>
+                @endif
                 @if ($errors->has('date'))
                     <br>
                         <strong class="text-danger label-date">{{ $errors->first('date') }}</strong>
