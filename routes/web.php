@@ -31,6 +31,9 @@ Route::get('test/auth/logout', [App\Http\Controllers\AuthController::class, 'log
 Route::get('home-user', function () {
     return view('simbiling.dashboard.user');
 });
+Route::get('home-guru', function () {
+    return view('simbiling.dashboard.guru');
+});
 Route::get('edukasi-rpl', function () {
     return view('simbiling.edukasi.rpl');
 });
